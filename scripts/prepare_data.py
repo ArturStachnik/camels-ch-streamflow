@@ -75,9 +75,6 @@ STREAMFLOW_DERIVED_FILES = [
 STATIC_SOURCES = {
     "CAMELS_CH_topographic_attributes.csv": [
         "area", "elev_mean", "slope_mean", "flat_area_perc", "steep_area_perc"],
-    "simulation_based/CAMELS_CH_climate_attributes_sim.csv": [
-        "p_mean", "pet_mean", "aridity", "p_seasonality", "frac_snow",
-        "high_prec_freq", "high_prec_dur", "low_prec_freq", "low_prec_dur"],
     "CAMELS_CH_landcover_attributes.csv": [
         "crop_perc", "grass_perc", "scrub_perc", "dwood_perc", "mixed_wood_perc", "ewood_perc",
         "wetlands_perc", "inwater_perc", "ice_perc", "loose_rock_perc", "rock_perc", "urban_perc"],
@@ -97,6 +94,44 @@ def read_static(rel: str) -> pd.DataFrame:
     return df.set_index("gauge_id")
 
 
+def _mean_run_length(mask: np.ndarray) -> float:
+    """Mean length of runs of consecutive True values."""
+    edges = np.diff(np.concatenate([[0], mask.astype(int), [0]]))
+    lengths = np.flatnonzero(edges == -1) - np.flatnonzero(edges == 1)
+    return float(lengths.mean()) if len(lengths) else 0.0
+
+
+def climate_indices(df: pd.DataFrame, period: tuple) -> dict:
+    """Climate indices after Addor et al. (2017), from the forcing of `period` only.
+
+    The indices shipped with CAMELS-CH cover 1981-2020, which includes the test period.
+    They are recomputed here from the training period so that no static input depends
+    on test-period data. Only forcing is used, never discharge.
+    """
+    d = df.loc[period[0]:period[1]]
+    p, t, pet = d["precipitation"], d["temperature"], d["pet"]
+    # Seasonality: least-squares sine fits to daily precipitation and temperature.
+    w = 2 * np.pi * d.index.dayofyear.to_numpy() / 365.25
+    X = np.column_stack([np.ones_like(w), np.sin(w), np.cos(w)])
+    (_, ap, bp), (_, at, bt) = (np.linalg.lstsq(X, v.to_numpy(), rcond=None)[0] for v in (p, t))
+    delta_p = np.hypot(ap, bp) / p.mean()
+    phase_diff = np.arctan2(bp, ap) - np.arctan2(bt, at)
+    high = (p >= 5 * p.mean()).to_numpy()
+    low = (p < 1.0).to_numpy()
+    years = len(d) / 365.25
+    return {
+        "p_mean": p.mean(),
+        "pet_mean": pet.mean(),
+        "aridity": pet.mean() / p.mean(),
+        "p_seasonality": delta_p * np.cos(phase_diff),
+        "frac_snow": p[t < 0].sum() / p.sum(),
+        "high_prec_freq": high.sum() / years,
+        "high_prec_dur": _mean_run_length(high),
+        "low_prec_freq": low.sum() / years,
+        "low_prec_dur": _mean_run_length(low),
+    }
+
+
 def valid_days(q: pd.Series, period: tuple) -> int:
     return int(q.loc[period[0]:period[1]].notna().sum())
 
@@ -112,7 +147,7 @@ def main() -> None:
     supp = read_static("supplements/CAMELS_CH_topographic_attributes_supplement.csv")
 
     # ---- time series ----------------------------------------------------------------
-    rows = []
+    rows, climate = [], {}
     for gid in topo.index:
         obs = pd.read_csv(RAW / f"timeseries/observation_based/CAMELS_CH_obs_based_{gid}.csv",
                           index_col="date", parse_dates=True)
@@ -142,6 +177,7 @@ def main() -> None:
         for name, period in PERIODS.items():
             row[f"q_valid_days_{name}"] = valid_days(q, period)
         rows.append(row)
+        climate[gid] = climate_indices(df, PERIODS["train"])
     report = pd.DataFrame(rows).set_index("gauge_id")
 
     # ---- basin selection -------------------------------------------------------------
@@ -163,7 +199,7 @@ def main() -> None:
 
     # ---- static attributes -----------------------------------------------------------
     parts = [read_static(rel)[cols] for rel, cols in STATIC_SOURCES.items()]
-    attrs = pd.concat(parts, axis=1)
+    attrs = pd.concat(parts + [pd.DataFrame.from_dict(climate, orient="index")], axis=1)
     attrs["glac_frac"] = attrs.pop("glac_area") / attrs["area"]
     attrs["reservoir_cap"] = attrs["reservoir_cap"].fillna(0.0)
     sel = attrs.loc[basins]

@@ -1,0 +1,46 @@
+# Setting 1 baseline: regional LSTM after Kratzert et al. (2019). One model for all basins,
+# fixed 30 epochs, no early stopping and no model selection; the final epoch is evaluated
+# on the test period. Validation metrics are logged for diagnosis only.
+experiment_name: baseline_seed3
+run_dir: runs
+train_basin_file: splits/basins_all.txt
+validation_basin_file: splits/basins_all.txt
+test_basin_file: splits/basins_all.txt
+train_start_date: "01/10/1981"
+train_end_date: "30/09/2005"
+validation_start_date: "01/10/2005"
+validation_end_date: "30/09/2010"
+test_start_date: "01/10/2010"
+test_end_date: "30/09/2020"
+seed: 103
+device: cuda:0
+validate_every: 5
+validate_n_random_basins: 259
+cache_validation_data: True
+metrics: [NSE, KGE, FHV, FLV]
+save_validation_results: True
+model: cudalstm
+head: regression
+output_activation: linear
+hidden_size: 256
+initial_forget_bias: 3
+output_dropout: 0.4
+optimizer: Adam
+loss: NSE
+learning_rate: {0: 1e-3, 10: 5e-4, 25: 1e-4}
+batch_size: 256
+epochs: 30
+clip_gradient_norm: 1
+predict_last_n: 1
+seq_length: 365
+num_workers: 0
+log_interval: 500
+log_tensorboard: False
+log_n_figures: 0
+save_weights_every: 5
+dataset: generic
+data_dir: data/processed
+dynamic_inputs: [precipitation, temperature, radiation, rel_humidity, wind, pet]
+target_variables: [discharge_spec]
+clip_targets_to_zero: [discharge_spec]
+static_attributes: [area, elev_mean, slope_mean, flat_area_perc, steep_area_perc, p_mean, pet_mean, aridity, p_seasonality, frac_snow, high_prec_freq, high_prec_dur, low_prec_freq, low_prec_dur, crop_perc, grass_perc, scrub_perc, dwood_perc, mixed_wood_perc, ewood_perc, wetlands_perc, inwater_perc, ice_perc, loose_rock_perc, rock_perc, urban_perc, geo_porosity, geo_log10_permeability, unconsol_sediments, siliciclastic_sedimentary, mixed_sedimentary, carbonate_sedimentary, acid_plutonic, metamorphics, sand_perc, silt_perc, clay_perc, organic_perc, bulk_dens, tot_avail_water, root_depth, coarse_fragm_perc, porosity, conductivity, dens_inhabitants, hp_count, num_reservoir, reservoir_cap, glac_frac]
