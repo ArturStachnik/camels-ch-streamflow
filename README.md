@@ -21,21 +21,40 @@ The dataset is not redistributed here. `scripts/download_data.py` downloads it a
 checks the MD5 sums published by Zenodo.
 
 - Target: observed specific discharge, `discharge_spec` (mm/d), daily.
-- Forcing: the gridded meteorology in the dataset's `simulation_based` folder
-  (precipitation, temperature, radiation, relative humidity, wind, PET). It is used
-  because it is complete for all catchments; the MeteoSwiss observation-based temperature
-  and sunshine grids are missing for about 55 catchments outside Switzerland.
-  PREVAH model output (simulated discharge, ET, interception) is never used as input.
-- Static attributes: 49 attributes from topography, climate, land cover, geology, soil,
-  glacier and human-influence tables. The hydrological signature tables are excluded
-  because they are computed from streamflow. See `results/data_report/`.
+- Forcing: MeteoSwiss observation-based grids shipped with CAMELS-CH (precipitation,
+  minimum, mean and maximum temperature, relative sunshine duration).
+- The forcing in the dataset's `simulation_based` folder is not used for the main runs.
+  A design audit found that this product changes on 2010-01-01 (mean wind +65 %, PET
+  +19 %, different daily precipitation window), which falls between the training and
+  the test period. It is kept for one sensitivity run. PREVAH model output (simulated
+  discharge, ET, interception) is never used as input.
+- Static attributes: 45 attributes from topography, land cover, geology, soil, glacier
+  cover, population density, and eight climate indices recomputed from training-period
+  forcing (the indices shipped with the dataset cover 1981-2020, which includes the test
+  period). The hydrological signature tables are excluded because they are computed from
+  streamflow. Hydropower and reservoir attributes are not inputs because they are only
+  populated inside Switzerland; they are used to flag basins. See `results/data_report/`.
 
 ### Basin selection
 
-Of 331 catchments, 259 are used. Excluded: 33 lakes and 3 gauges that the dataset
-readme recommends excluding (2446, 2447, 2327), and 36 gauges with fewer than 5 years
-of valid discharge in the training period or fewer than 2 years in the validation or
-test period. The per-basin table is `results/data_report/basin_report.csv`.
+Of 331 catchments, 205 are used (175 CH, 14 AT, 13 FR, 2 DE, 1 IT). Excluded:
+
+| Reason | Basins |
+|---|---|
+| Observation-based forcing incomplete (catchments outside the MeteoSwiss grids) | 53 |
+| Lake (dataset readme) | 33 |
+| Fewer than 5 years of valid discharge in the training period | 26 |
+| Fewer than 2 years of valid discharge in the validation period | 3 |
+| Fewer than 3 years of valid discharge in the test period | 2 |
+| Discharge more than twice precipitation in the training period | 3 |
+| Dataset readme recommendation (2446, 2447, 2327) | 3 |
+| Duplicated or identical discharge series (2613, 4008, 4009) | 3 |
+
+The per-basin table with quality-control columns is `results/data_report/basin_report.csv`.
+`results/data_report/basin_flags.csv` flags regulated (81), major reservoir (48),
+glacierised (32), lake-influenced (34), open water balance (18) and basins outside
+Switzerland with unknown human influence (30). 75 basins carry no flag. Results will be
+reported for all basins and for the unflagged subset.
 
 ### Periods (hydrological years)
 
@@ -49,12 +68,12 @@ Split files live in `splits/` with SHA-256 sums and are checked by `tests/test_l
 
 ## Known open points
 
-- The climate attributes shipped with CAMELS-CH are computed over 1981-2020, which
-  includes the test period. They use forcing only, not discharge. To be decided before
-  the baseline: recompute them from the training period.
-- Nested gauges on the same river are not yet handled; this matters for setting 2.
-- Regulated, glacierised and lake-influenced basins are included; results will be
-  reported with and without them.
+- 203 of the 205 basins are nested with at least one other basin. This does not affect
+  setting 1 but requires grouped folds in setting 2.
+- Input sequences for the first 364 days of the validation and test periods use forcing
+  from the preceding period. No discharge from another period is used.
+- Requiring three years of valid test-period discharge is a selection on data
+  availability in the test period; it removes two basins.
 
 ## Reproduce
 
@@ -66,7 +85,7 @@ pip install -r requirements.txt
 python scripts/download_data.py
 python scripts/prepare_data.py
 pytest -q
-nh-run train --config-file configs/smoke_test.yml
+nh-run train --config-file configs/baseline_seed1.yml
 ```
 
 ## Licence

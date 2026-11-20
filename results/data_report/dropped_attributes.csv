@@ -1,3 +1,8 @@
 attribute,reason
 all columns of CAMELS_CH_hydrology_attributes_obs.csv,derived from streamflow
 all columns of simulation_based/CAMELS_CH_hydrology_attributes_sim.csv,derived from streamflow
+all columns of CAMELS_CH_climate_attributes_obs.csv,"computed over 1981-2020, includes test period; recomputed from training-period forcing"
+all columns of simulation_based/CAMELS_CH_climate_attributes_sim.csv,"computed over 1981-2020, includes test period; recomputed from training-period forcing"
+hp_count,hydropower/reservoir data only populated inside Switzerland
+num_reservoir,hydropower/reservoir data only populated inside Switzerland
+reservoir_cap,hydropower/reservoir data only populated inside Switzerland
