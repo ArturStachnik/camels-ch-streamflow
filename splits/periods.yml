@@ -1,0 +1,4 @@
+# hydrological years, inclusive dates
+train: ['1981-10-01', '2005-09-30']
+validation: ['2005-10-01', '2010-09-30']
+test: ['2010-10-01', '2020-09-30']

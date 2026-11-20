@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite it as below, and cite the CAMELS-CH dataset."
+title: "Multi-basin streamflow modelling on CAMELS-CH"
+authors:
+  - family-names: Stachnik
+    given-names: Artur
+license: MIT
+references:
+  - type: article
+    title: "CAMELS-CH: hydro-meteorological time series and landscape attributes for 331 catchments in hydrologic Switzerland"
+    authors:
+      - family-names: Höge
+        given-names: Marvin
+      - name: "et al."
+    journal: "Earth System Science Data"
+    volume: 15
+    year: 2023
+    doi: 10.5194/essd-15-5755-2023

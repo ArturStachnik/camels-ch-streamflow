@@ -1,0 +1,3 @@
+attribute,reason
+all columns of CAMELS_CH_hydrology_attributes_obs.csv,derived from streamflow
+all columns of simulation_based/CAMELS_CH_hydrology_attributes_sim.csv,derived from streamflow
