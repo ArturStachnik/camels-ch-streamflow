@@ -1,2 +1,4 @@
 splits/* -text
 *.csv -text
+splits/** -text
+results/** -text
