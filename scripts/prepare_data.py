@@ -283,9 +283,22 @@ def main() -> None:
         basin_file.write_text("\n".join(basins) + "\n", newline="\n")
         lines = [f"{k}: ['{a}', '{b}']" for k, (a, b) in PERIODS.items()]
         periods_file.write_text("# hydrological years, inclusive dates\n" + "\n".join(lines) + "\n", newline="\n")
-    sums = [f"{hashlib.sha256(p.read_bytes()).hexdigest()}  {p.as_posix()}"
-            for p in (basin_file, periods_file, attr_file)]
-    (SPLITS / "SHA256SUMS").write_text("\n".join(sums) + "\n", newline="\n")
+    # Recorded hashes are checked, never silently replaced: a rerun (on another machine, or
+    # after a library update) must reproduce the frozen files byte for byte.
+    sums_file = SPLITS / "SHA256SUMS"
+    recorded = {}
+    if sums_file.exists():
+        for line in sums_file.read_text().splitlines():
+            digest, name = line.split()
+            recorded[name] = digest
+    for p in (basin_file, periods_file, attr_file):
+        digest = hashlib.sha256(p.read_bytes()).hexdigest()
+        name = p.as_posix()
+        if name in recorded and recorded[name] != digest and not args.force_splits:
+            raise SystemExit(f"{name} does not reproduce its recorded SHA-256 ({recorded[name][:12]}... vs {digest[:12]}...). "
+                             "Stop and compare before going on.")
+        recorded[name] = digest
+    sums_file.write_text("".join(f"{d}  {n}\n" for n, d in recorded.items()), newline="\n")
 
     print(f"basins in dataset: {len(report)}; selected: {len(basins)}")
     print(report.loc[~report.selected, "excluded_reason"].value_counts().to_string())
