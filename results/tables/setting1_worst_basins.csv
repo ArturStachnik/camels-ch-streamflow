@@ -1,0 +1,7 @@
+Basin,Gauge,River,Area (km2),Flags,NSE,r,Variability ratio,Mean ratio,Q/P train,Q/P test
+2157,Gerlafingen,Strackbach,13,water balance open,-1.66,0.47,0.84,0.79,1.42,1.79
+2239,Punt dal Gall,Spöl,295,"regulated, reservoir major, water balance open",-0.41,0.45,1.10,1.26,0.11,0.10
+2418,Tiefencastel,Julia,325,"regulated, reservoir major, water balance open",0.31,0.65,0.33,0.56,0.09,0.10
+3019,Loruens-Aeule,Ill,536,"water balance open, human info missing",0.37,0.66,0.44,0.85,0.24,0.25
+2606,Genève-Halle de l'ìle,Rhône,8002,"regulated, reservoir major, glacier, lake",0.41,0.65,0.75,1.04,0.80,0.77
+2119,Fribourg,Sarine,1271,"regulated, reservoir major",0.48,0.70,0.78,1.01,0.71,0.66

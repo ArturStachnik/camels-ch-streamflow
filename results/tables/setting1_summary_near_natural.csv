@@ -1,0 +1,7 @@
+Model,Median NSE,NSE 5th-95th pct,Basins NSE < 0,Median KGE,Median log-NSE,Median bias (%),Median FHV (%),Median FLV (%)
+Seed 1,0.857,0.66 to 0.91,0,0.817,0.889,-7.3,-13.2,-27.6
+Seed 2,0.848,0.65 to 0.92,0,0.825,0.879,-7.2,-12.3,-35.0
+Seed 3,0.854,0.68 to 0.91,0,0.815,0.890,-7.9,-13.8,-6.5
+Mean of the three seeds,0.868,0.70 to 0.92,0,0.818,0.901,-7.5,-13.4,+4.1
+Day-of-year climatology,0.030,-0.04 to 0.61,26,0.000,-0.160,+7.0,n/a,n/a
+PREVAH (context only),0.645,-1.09 to 0.79,6,0.621,0.724,-0.3,n/a,n/a

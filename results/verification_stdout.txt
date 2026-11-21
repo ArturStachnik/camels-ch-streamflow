@@ -1,0 +1,83 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded baseline_seed1_2011_132323: 205 basins from runs/baseline_seed1_2011_132323/test/model_epoch030/test_results.p
+[PASS   ] structure[baseline_seed1_2011_132323]: results hold one daily frequency with a single time step at midnight dates
+Loaded baseline_seed2_2011_132325: 205 basins from runs/baseline_seed2_2011_132325/test/model_epoch030/test_results.p
+[PASS   ] structure[baseline_seed2_2011_132325]: results hold one daily frequency with a single time step at midnight dates
+Loaded baseline_seed3_2011_132328: 205 basins from runs/baseline_seed3_2011_132328/test/model_epoch030/test_results.p
+[PASS   ] structure[baseline_seed3_2011_132328]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[baseline_seed1_2011_132323]: test dates in the run's config.yml equal periods.yml
+[PASS   ] config_period[baseline_seed2_2011_132325]: test dates in the run's config.yml equal periods.yml
+[PASS   ] config_period[baseline_seed3_2011_132328]: test dates in the run's config.yml equal periods.yml
+[PASS   ] distinct_seeds: the runs use different random seeds
+[PASS   ] basin_set[baseline_seed1_2011_132323]: basins in results equal basins_all.txt exactly
+[PASS   ] basin_set[baseline_seed2_2011_132325]: basins in results equal basins_all.txt exactly
+[PASS   ] basin_set[baseline_seed3_2011_132328]: basins in results equal basins_all.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[FINDING] sim_non_negative: simulations are non-negative
+          {"n_basin_member_pairs": 72, "total": 3338, "examples": [{"member": "baseline_seed1_2011_132323", "basin": "2155", "n_sim_negative": 94}, {"member": "baseline_seed1_2011_132323", "basin": "2161", "n_sim_negative": 30}, {"member": "baseline_seed1_2011_132323", "basin": "2247", "n_sim_negative": 17}, {"member": "baseline_seed1_2011_132323", "basin": "2251", "n_sim_negative": 3}, {"member": "baseline ... (truncated, see verification_report.json)
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[PASS   ] obs_identical_across_seeds: all runs hold the same dates and observations for every basin
+[FINDING] flv_low_segment[baseline_seed1_2011_132323]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 31, "n_with_obs_zero": 3, "n_with_sim_zero": 24, "basins": ["2155", "2161", "2185", "2247", "2251", "2252", "2268", "2283", "2300", "2312", "2347", "2349", "2371", "2403", "2409", "2414", "2418", "2434", "2436", "2437", "2458", "2604", "2608", "2635", "5001", "5003", "5009", "5010", "5013", "5014", "5030"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE the ... (truncated, see verification_report.json)
+[FINDING] flv_low_segment[baseline_seed2_2011_132325]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 32, "n_with_obs_zero": 3, "n_with_sim_zero": 29, "basins": ["2155", "2161", "2185", "2202", "2239", "2251", "2252", "2282", "2283", "2299", "2347", "2349", "2368", "2371", "2374", "2403", "2412", "2414", "2418", "2437", "2458", "2475", "2604", "2608", "2610", "5001", "5003", "5009", "5010", "5013", "5014", "6007"], "note": "FLV is unstable for these basins; prefer PBIAS and lo ... (truncated, see verification_report.json)
+[FINDING] flv_low_segment[baseline_seed3_2011_132328]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 20, "n_with_obs_zero": 3, "n_with_sim_zero": 18, "basins": ["2155", "2161", "2239", "2247", "2251", "2252", "2256", "2283", "2347", "2349", "2371", "2403", "2409", "2414", "2418", "2436", "2437", "2475", "2608", "5003"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[FINDING] flv_low_segment[ensemble]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 10, "n_with_obs_zero": 3, "n_with_sim_zero": 6, "basins": ["2155", "2252", "2283", "2349", "2371", "2414", "2418", "2437", "2608", "5003"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[baseline_seed1_2011_132323][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed1_2011_132323][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed1_2011_132323][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[baseline_seed1_2011_132323][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[baseline_seed2_2011_132325][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed2_2011_132325][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed2_2011_132325][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[baseline_seed2_2011_132325][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[baseline_seed3_2011_132328][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed3_2011_132328][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[baseline_seed3_2011_132328][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[baseline_seed3_2011_132328][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[baseline_seed1_2011_132323]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[baseline_seed1_2011_132323]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[baseline_seed1_2011_132323]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[baseline_seed1_2011_132323]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+[PASS   ] alarm_nse_above_0.98[baseline_seed2_2011_132325]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[baseline_seed2_2011_132325]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[baseline_seed2_2011_132325]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[baseline_seed2_2011_132325]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+[PASS   ] alarm_nse_above_0.98[baseline_seed3_2011_132328]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[baseline_seed3_2011_132328]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[baseline_seed3_2011_132328]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[baseline_seed3_2011_132328]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+[PASS   ] alarm_nse_above_0.98[ensemble]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[ensemble]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[ensemble]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[ensemble]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+[PASS   ] alarm_seed_spread: median NSE differs by at most 0.03 between seeds
+
+                    member subset metric  n_basins  n_nan   median      mean       p05       p25      p75      p95         min      max  n_below_zero
+baseline_seed1_2011_132323    all    NSE       205      0 0.863622  0.814541  0.531829  0.810730 0.900385 0.932424   -1.692217 0.965991           2.0
+baseline_seed1_2011_132323    all    KGE       205      0 0.862544  0.823172  0.623230  0.777847 0.897706 0.943452    0.208195 0.978190           0.0
+baseline_seed2_2011_132325    all    NSE       205      0 0.859552  0.812961  0.552341  0.806040 0.895095 0.928429   -1.541456 0.956840           2.0
+baseline_seed2_2011_132325    all    KGE       205      0 0.849044  0.816751  0.614624  0.772997 0.894268 0.930558    0.073657 0.967297           0.0
+baseline_seed3_2011_132328    all    NSE       205      0 0.862270  0.811388  0.537668  0.804361 0.894259 0.928639   -1.935185 0.963843           2.0
+baseline_seed3_2011_132328    all    KGE       205      0 0.848053  0.816953  0.593437  0.769678 0.895543 0.941275    0.073454 0.974533           0.0
+                  ensemble    all    NSE       205      0 0.873422  0.826046  0.572763  0.826137 0.905716 0.938687   -1.663837 0.967129           2.0
+                  ensemble    all    KGE       205      0 0.848680  0.819745  0.617938  0.777240 0.898339 0.943166    0.121610 0.971298           0.0
+ benchmark_climatology_doy    all    NSE       205      0 0.096871  0.213369 -0.051702  0.000874 0.477360 0.722493   -0.611279 0.836628          50.0
+ benchmark_climatology_doy    all    KGE       205      0 0.161298  0.267015 -0.158005 -0.027884 0.652167 0.815578   -0.233906 0.876332          59.0
+          benchmark_prevah    all    NSE       205      0 0.518960 -5.020634 -5.049796  0.059105 0.690754 0.805743 -848.047267 0.936267          47.0
+          benchmark_prevah    all    KGE       205      0 0.597225  0.160247 -1.635372  0.321471 0.737988 0.867522  -23.268977 0.911148          29.0
+
+All hard checks passed (5 soft finding(s)).
+Outputs written to results/verification

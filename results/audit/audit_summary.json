@@ -1,0 +1,211 @@
+{
+  "runs": [
+    "baseline_seed1_2011_132323",
+    "baseline_seed2_2011_132325",
+    "baseline_seed3_2011_132328"
+  ],
+  "n_basins": 205,
+  "periods": {
+    "train": [
+      "1981-10-01",
+      "2005-09-30"
+    ],
+    "validation": [
+      "2005-10-01",
+      "2010-09-30"
+    ],
+    "test": [
+      "2010-10-01",
+      "2020-09-30"
+    ]
+  },
+  "scaler": {
+    "identical_across_seeds": true,
+    "max_rel_diff_training": 7.419046086061082e-08,
+    "max_rel_diff_train_val": 0.05643151421275222,
+    "max_rel_diff_all_periods": 0.29185746618691816,
+    "static_means_max_rel_diff": 0.0
+  },
+  "climate_indices": {
+    "max_abs_diff_training_period": 5.00000000069889e-07,
+    "n_basins_closer_to_full_record": 0
+  },
+  "runs_detail": {
+    "baseline_seed1_2011_132323": {
+      "seed": 101,
+      "epochs": 30,
+      "dynamic_inputs": [
+        "precipitation",
+        "temperature_min",
+        "temperature_mean",
+        "temperature_max",
+        "rel_sun_dur"
+      ],
+      "n_static_attributes": 45,
+      "static_attributes_in_signatures": [],
+      "lagged_or_autoregressive_inputs": false,
+      "test_epochs_evaluated": [
+        "model_epoch030"
+      ],
+      "best_validation_epoch": 10
+    },
+    "baseline_seed2_2011_132325": {
+      "seed": 102,
+      "epochs": 30,
+      "dynamic_inputs": [
+        "precipitation",
+        "temperature_min",
+        "temperature_mean",
+        "temperature_max",
+        "rel_sun_dur"
+      ],
+      "n_static_attributes": 45,
+      "static_attributes_in_signatures": [],
+      "lagged_or_autoregressive_inputs": false,
+      "test_epochs_evaluated": [
+        "model_epoch030"
+      ],
+      "best_validation_epoch": 10
+    },
+    "baseline_seed3_2011_132328": {
+      "seed": 103,
+      "epochs": 30,
+      "dynamic_inputs": [
+        "precipitation",
+        "temperature_min",
+        "temperature_mean",
+        "temperature_max",
+        "rel_sun_dur"
+      ],
+      "n_static_attributes": 45,
+      "static_attributes_in_signatures": [],
+      "lagged_or_autoregressive_inputs": false,
+      "test_epochs_evaluated": [
+        "model_epoch030"
+      ],
+      "best_validation_epoch": 25
+    }
+  },
+  "seasonality": {
+    "median": {
+      "NSE": 0.8734221466462045,
+      "NSE_climatology": 0.09687102981843942,
+      "skill_vs_climatology": 0.827323507609398,
+      "skill_vs_test_period_climatology": 0.794696174828345,
+      "NSE_anomalies": 0.8260638234370292,
+      "r_anomalies": 0.9205536172628886
+    },
+    "p25": {
+      "NSE": 0.8261372859177685,
+      "NSE_climatology": 0.0008737130593152731,
+      "skill_vs_climatology": 0.7291724561509143,
+      "skill_vs_test_period_climatology": 0.6687096202816699,
+      "NSE_anomalies": 0.7288757861411765,
+      "r_anomalies": 0.8643589726131492
+    },
+    "p05": {
+      "NSE": 0.5727631924473839,
+      "NSE_climatology": -0.051702128473100954,
+      "skill_vs_climatology": 0.5067304195622456,
+      "skill_vs_test_period_climatology": 0.39368781682833565,
+      "NSE_anomalies": 0.4892067783683691,
+      "r_anomalies": 0.7037573591198968
+    },
+    "n_basins_skill_vs_climatology_below_0": 1,
+    "n_basins_skill_vs_climatology_below_0p5": 10
+  },
+  "basins_below_0p5": {
+    "n": 6,
+    "n_near_natural": 0,
+    "min_NSE_near_natural": 0.5238029644676263
+  },
+  "per_year": {
+    "worst_basin": "2239",
+    "n_basins_with_all_years": 171,
+    "max_abs_diff_median_all_vs_complete": 0.007539342894505641,
+    "worst_basin_years": {
+      "2011": {
+        "NSE": 0.1805,
+        "obs_mean": 0.2793,
+        "obs_std": 0.1453
+      },
+      "2012": {
+        "NSE": 0.2405,
+        "obs_mean": 0.2746,
+        "obs_std": 0.1415
+      },
+      "2013": {
+        "NSE": 0.0795,
+        "obs_mean": 0.3056,
+        "obs_std": 0.1769
+      },
+      "2014": {
+        "NSE": 0.1854,
+        "obs_mean": 0.2933,
+        "obs_std": 0.2251
+      },
+      "2015": {
+        "NSE": 0.2794,
+        "obs_mean": 0.291,
+        "obs_std": 0.2073
+      },
+      "2016": {
+        "NSE": 0.5663,
+        "obs_mean": 0.3008,
+        "obs_std": 0.1797
+      },
+      "2017": {
+        "NSE": -234.4656,
+        "obs_mean": 0.1875,
+        "obs_std": 0.0131
+      },
+      "2018": {
+        "NSE": -628.5117,
+        "obs_mean": 0.1951,
+        "obs_std": 0.0084
+      },
+      "2019": {
+        "NSE": -1037.5707,
+        "obs_mean": 0.1838,
+        "obs_std": 0.0061
+      },
+      "2020": {
+        "NSE": -521.2369,
+        "obs_mean": 0.1785,
+        "obs_std": 0.0095
+      }
+    }
+  },
+  "n_basins_ending_before_test_end": 33,
+  "clipping": {
+    "n_negative_values": 3338,
+    "n_basin_member_pairs_with_negatives": 72,
+    "n_pairs_changed_by_more_than_0p01": 1,
+    "largest_change": {
+      "basin": "6007",
+      "member": "baseline_seed2_2011_132325",
+      "NSE_unclipped": 0.8504835323045314,
+      "NSE_clipped": 0.8920956244650244,
+      "min_sim": -36.955997467041016,
+      "date_of_min": "2019-03-28",
+      "other_members_same_day": {
+        "baseline_seed1_2011_132323": 1.4576202630996704,
+        "baseline_seed3_2011_132328": 2.1778321266174316
+      }
+    },
+    "median_NSE_by_member": {
+      "baseline_seed1_2011_132323": {
+        "NSE_unclipped": 0.863622,
+        "NSE_clipped": 0.863622
+      },
+      "baseline_seed2_2011_132325": {
+        "NSE_unclipped": 0.857045,
+        "NSE_clipped": 0.859552
+      },
+      "baseline_seed3_2011_132328": {
+        "NSE_unclipped": 0.86227,
+        "NSE_clipped": 0.86227
+      }
+    }
+  }
+}

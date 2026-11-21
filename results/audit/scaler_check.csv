@@ -1,0 +1,37 @@
+variant,variable,statistic,saved,recomputed,rel_diff
+training period (forcing incl. warm-up),precipitation,center,4.160552978515625,4.160553142103443,3.931876815490223e-08
+training period (forcing incl. warm-up),precipitation,scale,8.756105422973633,8.75610542436918,1.593798523232268e-10
+training period (forcing incl. warm-up),temperature_min,center,0.9250532388687134,0.9250532247277768,1.528661912490641e-08
+training period (forcing incl. warm-up),temperature_min,scale,7.376369476318359,7.376369562003309,1.1616141257184839e-08
+training period (forcing incl. warm-up),temperature_mean,center,4.700890064239502,4.700889786710577,5.903752723034725e-08
+training period (forcing incl. warm-up),temperature_mean,scale,7.81380033493042,7.813800254679056,1.0270465117695473e-08
+training period (forcing incl. warm-up),temperature_max,center,8.819649696350098,8.81964923303861,5.2531733448005256e-08
+training period (forcing incl. warm-up),temperature_max,scale,8.636900901794434,8.636900261018775,7.419046086061082e-08
+training period (forcing incl. warm-up),rel_sun_dur,center,42.890724182128906,42.89072257370687,3.7500463556694396e-08
+training period (forcing incl. warm-up),rel_sun_dur,scale,37.24371337890625,37.24371399422028,1.652128569463794e-08
+training period (forcing incl. warm-up),discharge_spec,center,2.88771390914917,2.887714107639872,6.873627663322061e-08
+training period (forcing incl. warm-up),discharge_spec,scale,3.64609432220459,3.6460942454622245,2.104782777670353e-08
+training + validation period,precipitation,center,4.160552978515625,4.1225007888532685,0.009145945228639409
+training + validation period,precipitation,scale,8.756105422973633,8.66989436868633,0.009845821872028624
+training + validation period,temperature_min,center,0.9250532388687134,0.9772553938654857,0.05643151421275222
+training + validation period,temperature_min,scale,7.376369476318359,7.412297307103921,0.004870665833769124
+training + validation period,temperature_mean,center,4.700890064239502,4.749345129334279,0.010307636305597416
+training + validation period,temperature_mean,scale,7.81380033493042,7.847797290713071,0.004350886166194073
+training + validation period,temperature_max,center,8.819649696350098,8.863455001352577,0.004966785134403629
+training + validation period,temperature_max,scale,8.636900901794434,8.667160695718694,0.0035035476576990372
+training + validation period,rel_sun_dur,center,42.890724182128906,43.12685467323044,0.005505397626275597
+training + validation period,rel_sun_dur,scale,37.24371337890625,37.16204179032678,0.002192895959341269
+training + validation period,discharge_spec,center,2.88771390914917,2.860796448541975,0.009321373742015197
+training + validation period,discharge_spec,scale,3.64609432220459,3.6226538313734795,0.00642893155241721
+training + validation + test period,precipitation,center,4.160552978515625,4.074265880042382,0.020739334150728275
+training + validation + test period,precipitation,scale,8.756105422973633,8.559198069538896,0.02248800624511735
+training + validation + test period,temperature_min,center,0.9250532388687134,1.195036933252938,0.29185746618691816
+training + validation + test period,temperature_min,scale,7.376369476318359,7.398241385431958,0.0029651319912617972
+training + validation + test period,temperature_mean,center,4.700890064239502,4.981649084954421,0.05972465147626033
+training + validation + test period,temperature_mean,scale,7.81380033493042,7.854833441445813,0.005251363581938632
+training + validation + test period,temperature_max,center,8.819649696350098,9.109062791905826,0.0328145794356774
+training + validation + test period,temperature_max,scale,8.636900901794434,8.686323915823579,0.005722308799314422
+training + validation + test period,rel_sun_dur,center,42.890724182128906,43.791640391018774,0.02100491950344006
+training + validation + test period,rel_sun_dur,scale,37.24371337890625,37.377315912004505,0.0035872505982156885
+training + validation + test period,discharge_spec,center,2.88771390914917,2.8407945731287785,0.016247917036288285
+training + validation + test period,discharge_spec,scale,3.64609432220459,3.595831504356026,0.013785386061590663
