@@ -1,0 +1,15 @@
+{
+  "n_units": 5,
+  "n_checks": 110,
+  "n_hard_failures": 1,
+  "n_alarms": 1,
+  "n_not_applicable_alarms_triggered": 0,
+  "n_findings": 5,
+  "failed": [
+    {
+      "unit": "setting2_fold0",
+      "check": "alarm_one_day_shift[gbm_setting2_fold0]"
+    }
+  ],
+  "overall": "fail"
+}

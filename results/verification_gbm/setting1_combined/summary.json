@@ -1,0 +1,10 @@
+{
+  "n_units": 1,
+  "n_checks": 22,
+  "n_hard_failures": 0,
+  "n_alarms": 0,
+  "n_not_applicable_alarms_triggered": 0,
+  "n_findings": 1,
+  "failed": [],
+  "overall": "pass"
+}

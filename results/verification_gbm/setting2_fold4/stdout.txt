@@ -1,0 +1,39 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting2_fold4: 35 basins from runs/gbm_setting2_fold4/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting2_fold4]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting2_fold4]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting2_fold4]: basins in results equal fold4_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting2_fold4]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 13, "n_with_obs_zero": 1, "n_with_sim_zero": 11, "basins": ["2087", "2161", "2219", "2252", "2268", "2342", "2346", "2419", "2433", "2434", "2450", "2607", "5003"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[gbm_setting2_fold4][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold4][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold4][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting2_fold4][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting2_fold4]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting2_fold4]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting2_fold4]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[gbm_setting2_fold4]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                   member subset metric  n_basins  n_nan   median     mean       p05       p25      p75      p95       min      max  n_below_zero
+       gbm_setting2_fold4    all    NSE        35      0 0.694903 0.536878 -0.029670  0.425688 0.776689 0.859851 -1.370979 0.880985           2.0
+       gbm_setting2_fold4    all    KGE        35      0 0.578965 0.506470 -0.013309  0.431641 0.722969 0.859879 -1.202902 0.922612           2.0
+benchmark_climatology_doy    all    NSE        35      0 0.096871 0.261250 -0.032796 -0.007385 0.552196 0.797777 -0.060212 0.836628          11.0
+benchmark_climatology_doy    all    KGE        35      0 0.193743 0.305144 -0.087704 -0.029102 0.683043 0.811693 -0.168656 0.853183          11.0
+         benchmark_prevah    all    NSE        35      0 0.657698 0.375037 -1.231932  0.330681 0.722308 0.855360 -2.158950 0.936267           5.0
+         benchmark_prevah    all    KGE        35      0 0.679083 0.549894  0.022611  0.508857 0.757331 0.878277 -1.459071 0.911148           2.0
+
+All hard checks passed (1 soft finding(s)).
+Outputs written to results/verification_gbm/setting2_fold4

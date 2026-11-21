@@ -1,0 +1,39 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting2_fold1: 36 basins from runs/gbm_setting2_fold1/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting2_fold1]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting2_fold1]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting2_fold1]: basins in results equal fold1_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting2_fold1]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 15, "n_with_obs_zero": 1, "n_with_sim_zero": 13, "basins": ["2105", "2256", "2304", "2319", "2343", "2351", "2355", "2371", "2418", "2471", "2478", "2485", "2608", "5016", "5031"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[gbm_setting2_fold1][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold1][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold1][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting2_fold1][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting2_fold1]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting2_fold1]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting2_fold1]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[gbm_setting2_fold1]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                   member subset metric  n_basins  n_nan   median       mean        p05       p25      p75      p95         min      max  n_below_zero
+       gbm_setting2_fold1    all    NSE        36      0 0.623449  -4.378669  -5.905664  0.348450 0.796330 0.848651 -156.339473 0.862819           5.0
+       gbm_setting2_fold1    all    KGE        36      0 0.555615   0.074402  -2.882619  0.252848 0.724790 0.840185   -8.102326 0.907617           4.0
+benchmark_climatology_doy    all    NSE        36      0 0.136012   0.252988  -0.153562  0.028242 0.563874 0.728276   -0.611279 0.769655           5.0
+benchmark_climatology_doy    all    KGE        36      0 0.242463   0.336910  -0.117183  0.034121 0.747289 0.827408   -0.213918 0.849221           7.0
+         benchmark_prevah    all    NSE        36      0 0.492104 -25.013656 -18.642542 -0.417637 0.669630 0.801003 -848.047267 0.818533          11.0
+         benchmark_prevah    all    KGE        36      0 0.558797  -0.709717  -6.267684  0.040959 0.720070 0.869014  -23.268977 0.883663           8.0
+
+All hard checks passed (1 soft finding(s)).
+Outputs written to results/verification_gbm/setting2_fold1

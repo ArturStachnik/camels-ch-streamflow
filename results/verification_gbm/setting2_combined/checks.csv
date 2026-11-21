@@ -1,0 +1,111 @@
+unit,check,status,hard,alarm,counts,description
+setting2_fold0,split_sha256,pass,True,False,True,files listed in SHA256SUMS match their SHA-256
+setting2_fold0,structure[gbm_setting2_fold0],pass,False,False,True,results hold one daily frequency with a single time step at midnight dates
+setting2_fold0,config_period[gbm_setting2_fold0],pass,False,False,True,test dates in the run's config.yml equal periods.yml
+setting2_fold0,basin_set[gbm_setting2_fold0],pass,True,False,True,basins in results equal fold0_test.txt exactly
+setting2_fold0,dates_inside_period,pass,True,False,True,every date lies inside 2010-10-01..2020-09-30
+setting2_fold0,no_duplicated_dates,pass,True,False,True,no basin has duplicated dates
+setting2_fold0,period_fully_covered,pass,False,False,True,every basin has one row for every day of the period
+setting2_fold0,no_nan_in_sim,pass,True,False,True,simulations contain no NaN or infinite value
+setting2_fold0,sim_non_negative,pass,False,False,True,simulations are non-negative
+setting2_fold0,obs_match_raw,pass,True,False,True,observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+setting2_fold0,obs_not_dropped,pass,False,False,True,no observation present in the raw file is missing from the results
+setting2_fold0,flv_low_segment[gbm_setting2_fold0],finding,False,False,True,no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+setting2_fold0,library_vs_own[gbm_setting2_fold0][NSE],pass,True,False,True,own NSE agrees with the library's test_metrics.csv within 0.001
+setting2_fold0,library_vs_own[gbm_setting2_fold0][KGE],pass,True,False,True,own KGE agrees with the library's test_metrics.csv within 0.001
+setting2_fold0,library_vs_own[gbm_setting2_fold0][FHV],pass,False,False,True,own FHV agrees with the library's test_metrics.csv within 0.1
+setting2_fold0,library_vs_own[gbm_setting2_fold0][FLV],pass,False,False,True,own FLV agrees with the library's test_metrics.csv within 0.1
+setting2_fold0,benchmarks_computed,pass,False,False,True,climatology and PREVAH benchmarks could be computed for every basin
+setting2_fold0,flags_cover_basins,pass,False,False,True,every basin in the results has a near_natural flag
+setting2_fold0,alarm_nse_above_0.98[gbm_setting2_fold0],pass,True,True,True,no basin has NSE > 0.98
+setting2_fold0,alarm_median_nse_above_0.90[gbm_setting2_fold0],pass,True,True,True,median NSE is not above 0.90
+setting2_fold0,alarm_sim_identical_to_obs[gbm_setting2_fold0],pass,True,True,True,no simulation is identical to the observations
+setting2_fold0,alarm_one_day_shift[gbm_setting2_fold0],fail,True,True,True,sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+setting2_fold1,split_sha256,pass,True,False,True,files listed in SHA256SUMS match their SHA-256
+setting2_fold1,structure[gbm_setting2_fold1],pass,False,False,True,results hold one daily frequency with a single time step at midnight dates
+setting2_fold1,config_period[gbm_setting2_fold1],pass,False,False,True,test dates in the run's config.yml equal periods.yml
+setting2_fold1,basin_set[gbm_setting2_fold1],pass,True,False,True,basins in results equal fold1_test.txt exactly
+setting2_fold1,dates_inside_period,pass,True,False,True,every date lies inside 2010-10-01..2020-09-30
+setting2_fold1,no_duplicated_dates,pass,True,False,True,no basin has duplicated dates
+setting2_fold1,period_fully_covered,pass,False,False,True,every basin has one row for every day of the period
+setting2_fold1,no_nan_in_sim,pass,True,False,True,simulations contain no NaN or infinite value
+setting2_fold1,sim_non_negative,pass,False,False,True,simulations are non-negative
+setting2_fold1,obs_match_raw,pass,True,False,True,observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+setting2_fold1,obs_not_dropped,pass,False,False,True,no observation present in the raw file is missing from the results
+setting2_fold1,flv_low_segment[gbm_setting2_fold1],finding,False,False,True,no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+setting2_fold1,library_vs_own[gbm_setting2_fold1][NSE],pass,True,False,True,own NSE agrees with the library's test_metrics.csv within 0.001
+setting2_fold1,library_vs_own[gbm_setting2_fold1][KGE],pass,True,False,True,own KGE agrees with the library's test_metrics.csv within 0.001
+setting2_fold1,library_vs_own[gbm_setting2_fold1][FHV],pass,False,False,True,own FHV agrees with the library's test_metrics.csv within 0.1
+setting2_fold1,library_vs_own[gbm_setting2_fold1][FLV],pass,False,False,True,own FLV agrees with the library's test_metrics.csv within 0.1
+setting2_fold1,benchmarks_computed,pass,False,False,True,climatology and PREVAH benchmarks could be computed for every basin
+setting2_fold1,flags_cover_basins,pass,False,False,True,every basin in the results has a near_natural flag
+setting2_fold1,alarm_nse_above_0.98[gbm_setting2_fold1],pass,True,True,True,no basin has NSE > 0.98
+setting2_fold1,alarm_median_nse_above_0.90[gbm_setting2_fold1],pass,True,True,True,median NSE is not above 0.90
+setting2_fold1,alarm_sim_identical_to_obs[gbm_setting2_fold1],pass,True,True,True,no simulation is identical to the observations
+setting2_fold1,alarm_one_day_shift[gbm_setting2_fold1],pass,True,True,True,sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+setting2_fold2,split_sha256,pass,True,False,True,files listed in SHA256SUMS match their SHA-256
+setting2_fold2,structure[gbm_setting2_fold2],pass,False,False,True,results hold one daily frequency with a single time step at midnight dates
+setting2_fold2,config_period[gbm_setting2_fold2],pass,False,False,True,test dates in the run's config.yml equal periods.yml
+setting2_fold2,basin_set[gbm_setting2_fold2],pass,True,False,True,basins in results equal fold2_test.txt exactly
+setting2_fold2,dates_inside_period,pass,True,False,True,every date lies inside 2010-10-01..2020-09-30
+setting2_fold2,no_duplicated_dates,pass,True,False,True,no basin has duplicated dates
+setting2_fold2,period_fully_covered,pass,False,False,True,every basin has one row for every day of the period
+setting2_fold2,no_nan_in_sim,pass,True,False,True,simulations contain no NaN or infinite value
+setting2_fold2,sim_non_negative,pass,False,False,True,simulations are non-negative
+setting2_fold2,obs_match_raw,pass,True,False,True,observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+setting2_fold2,obs_not_dropped,pass,False,False,True,no observation present in the raw file is missing from the results
+setting2_fold2,flv_low_segment[gbm_setting2_fold2],finding,False,False,True,no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+setting2_fold2,library_vs_own[gbm_setting2_fold2][NSE],pass,True,False,True,own NSE agrees with the library's test_metrics.csv within 0.001
+setting2_fold2,library_vs_own[gbm_setting2_fold2][KGE],pass,True,False,True,own KGE agrees with the library's test_metrics.csv within 0.001
+setting2_fold2,library_vs_own[gbm_setting2_fold2][FHV],pass,False,False,True,own FHV agrees with the library's test_metrics.csv within 0.1
+setting2_fold2,library_vs_own[gbm_setting2_fold2][FLV],pass,False,False,True,own FLV agrees with the library's test_metrics.csv within 0.1
+setting2_fold2,benchmarks_computed,pass,False,False,True,climatology and PREVAH benchmarks could be computed for every basin
+setting2_fold2,flags_cover_basins,pass,False,False,True,every basin in the results has a near_natural flag
+setting2_fold2,alarm_nse_above_0.98[gbm_setting2_fold2],pass,True,True,True,no basin has NSE > 0.98
+setting2_fold2,alarm_median_nse_above_0.90[gbm_setting2_fold2],pass,True,True,True,median NSE is not above 0.90
+setting2_fold2,alarm_sim_identical_to_obs[gbm_setting2_fold2],pass,True,True,True,no simulation is identical to the observations
+setting2_fold2,alarm_one_day_shift[gbm_setting2_fold2],pass,True,True,True,sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+setting2_fold3,split_sha256,pass,True,False,True,files listed in SHA256SUMS match their SHA-256
+setting2_fold3,structure[gbm_setting2_fold3],pass,False,False,True,results hold one daily frequency with a single time step at midnight dates
+setting2_fold3,config_period[gbm_setting2_fold3],pass,False,False,True,test dates in the run's config.yml equal periods.yml
+setting2_fold3,basin_set[gbm_setting2_fold3],pass,True,False,True,basins in results equal fold3_test.txt exactly
+setting2_fold3,dates_inside_period,pass,True,False,True,every date lies inside 2010-10-01..2020-09-30
+setting2_fold3,no_duplicated_dates,pass,True,False,True,no basin has duplicated dates
+setting2_fold3,period_fully_covered,pass,False,False,True,every basin has one row for every day of the period
+setting2_fold3,no_nan_in_sim,pass,True,False,True,simulations contain no NaN or infinite value
+setting2_fold3,sim_non_negative,pass,False,False,True,simulations are non-negative
+setting2_fold3,obs_match_raw,pass,True,False,True,observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+setting2_fold3,obs_not_dropped,pass,False,False,True,no observation present in the raw file is missing from the results
+setting2_fold3,flv_low_segment[gbm_setting2_fold3],finding,False,False,True,no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+setting2_fold3,library_vs_own[gbm_setting2_fold3][NSE],pass,True,False,True,own NSE agrees with the library's test_metrics.csv within 0.001
+setting2_fold3,library_vs_own[gbm_setting2_fold3][KGE],pass,True,False,True,own KGE agrees with the library's test_metrics.csv within 0.001
+setting2_fold3,library_vs_own[gbm_setting2_fold3][FHV],pass,False,False,True,own FHV agrees with the library's test_metrics.csv within 0.1
+setting2_fold3,library_vs_own[gbm_setting2_fold3][FLV],pass,False,False,True,own FLV agrees with the library's test_metrics.csv within 0.1
+setting2_fold3,benchmarks_computed,pass,False,False,True,climatology and PREVAH benchmarks could be computed for every basin
+setting2_fold3,flags_cover_basins,pass,False,False,True,every basin in the results has a near_natural flag
+setting2_fold3,alarm_nse_above_0.98[gbm_setting2_fold3],pass,True,True,True,no basin has NSE > 0.98
+setting2_fold3,alarm_median_nse_above_0.90[gbm_setting2_fold3],pass,True,True,True,median NSE is not above 0.90
+setting2_fold3,alarm_sim_identical_to_obs[gbm_setting2_fold3],pass,True,True,True,no simulation is identical to the observations
+setting2_fold3,alarm_one_day_shift[gbm_setting2_fold3],pass,True,True,True,sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+setting2_fold4,split_sha256,pass,True,False,True,files listed in SHA256SUMS match their SHA-256
+setting2_fold4,structure[gbm_setting2_fold4],pass,False,False,True,results hold one daily frequency with a single time step at midnight dates
+setting2_fold4,config_period[gbm_setting2_fold4],pass,False,False,True,test dates in the run's config.yml equal periods.yml
+setting2_fold4,basin_set[gbm_setting2_fold4],pass,True,False,True,basins in results equal fold4_test.txt exactly
+setting2_fold4,dates_inside_period,pass,True,False,True,every date lies inside 2010-10-01..2020-09-30
+setting2_fold4,no_duplicated_dates,pass,True,False,True,no basin has duplicated dates
+setting2_fold4,period_fully_covered,pass,False,False,True,every basin has one row for every day of the period
+setting2_fold4,no_nan_in_sim,pass,True,False,True,simulations contain no NaN or infinite value
+setting2_fold4,sim_non_negative,pass,False,False,True,simulations are non-negative
+setting2_fold4,obs_match_raw,pass,True,False,True,observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+setting2_fold4,obs_not_dropped,pass,False,False,True,no observation present in the raw file is missing from the results
+setting2_fold4,flv_low_segment[gbm_setting2_fold4],finding,False,False,True,no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+setting2_fold4,library_vs_own[gbm_setting2_fold4][NSE],pass,True,False,True,own NSE agrees with the library's test_metrics.csv within 0.001
+setting2_fold4,library_vs_own[gbm_setting2_fold4][KGE],pass,True,False,True,own KGE agrees with the library's test_metrics.csv within 0.001
+setting2_fold4,library_vs_own[gbm_setting2_fold4][FHV],pass,False,False,True,own FHV agrees with the library's test_metrics.csv within 0.1
+setting2_fold4,library_vs_own[gbm_setting2_fold4][FLV],pass,False,False,True,own FLV agrees with the library's test_metrics.csv within 0.1
+setting2_fold4,benchmarks_computed,pass,False,False,True,climatology and PREVAH benchmarks could be computed for every basin
+setting2_fold4,flags_cover_basins,pass,False,False,True,every basin in the results has a near_natural flag
+setting2_fold4,alarm_nse_above_0.98[gbm_setting2_fold4],pass,True,True,True,no basin has NSE > 0.98
+setting2_fold4,alarm_median_nse_above_0.90[gbm_setting2_fold4],pass,True,True,True,median NSE is not above 0.90
+setting2_fold4,alarm_sim_identical_to_obs[gbm_setting2_fold4],pass,True,True,True,no simulation is identical to the observations
+setting2_fold4,alarm_one_day_shift[gbm_setting2_fold4],pass,True,True,True,sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins

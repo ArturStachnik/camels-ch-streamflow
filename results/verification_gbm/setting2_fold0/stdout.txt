@@ -1,0 +1,45 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting2_fold0: 36 basins from runs/gbm_setting2_fold0/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting2_fold0]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting2_fold0]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting2_fold0]: basins in results equal fold0_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting2_fold0]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 8, "n_with_obs_zero": 0, "n_with_sim_zero": 7, "basins": ["2210", "2269", "2290", "2307", "2349", "2415", "2480", "6007"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[gbm_setting2_fold0][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold0][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold0][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting2_fold0][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting2_fold0]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting2_fold0]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting2_fold0]: no simulation is identical to the observations
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!! ALARM  alarm_one_day_shift[gbm_setting2_fold0]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+!!!        {"n_basins": 36, "n_shifted_higher": 10, "fraction": 0.2777777777777778, "n_higher_vs_obs_next_day": 10, "n_higher_vs_obs_previous_day": 0, "basins": ["2104", "2210", "2247", "2270", "2370", "5012", "5013", "5014", "5030", "5032"]}
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+                   member subset metric  n_basins  n_nan   median      mean       p05      p25      p75      p95        min      max  n_below_zero
+       gbm_setting2_fold0    all    NSE        36      0 0.552864  0.154257 -2.116786 0.402639 0.666589 0.811000  -4.956080 0.903356           5.0
+       gbm_setting2_fold0    all    KGE        36      0 0.533445  0.499630  0.157979 0.411394 0.708197 0.838493  -1.186453 0.947532           2.0
+benchmark_climatology_doy    all    NSE        36      0 0.079591  0.166309 -0.050282 0.015804 0.335236 0.611979  -0.298981 0.754694           8.0
+benchmark_climatology_doy    all    KGE        36      0 0.095206  0.217172 -0.089504 0.001533 0.498440 0.729168  -0.233906 0.862314           9.0
+         benchmark_prevah    all    NSE        36      0 0.492401 -0.240594 -2.518511 0.211788 0.646897 0.775382 -14.043878 0.919070           7.0
+         benchmark_prevah    all    KGE        36      0 0.650193  0.439177 -0.216959 0.385781 0.712084 0.832904  -2.593338 0.909881           4.0
+
+==============================================================================
+VERIFICATION FAILED: 1 hard check(s) failed
+  - ALARM alarm_one_day_shift[gbm_setting2_fold0]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+==============================================================================
+Outputs written to results/verification_gbm/setting2_fold0

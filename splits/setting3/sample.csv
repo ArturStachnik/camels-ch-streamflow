@@ -1,0 +1,21 @@
+gauge_id,regime,near_natural,fold
+2126,lowland (mean elevation < 700 m),True,2
+2202,lowland (mean elevation < 700 m),True,3
+2312,lowland (mean elevation < 700 m),True,1
+2369,lowland (mean elevation < 700 m),True,3
+2283,hills (700-1200 m),True,3
+2305,hills (700-1200 m),True,2
+2307,hills (700-1200 m),True,0
+2321,hills (700-1200 m),True,3
+2409,pre-alpine (1200-1800 m),True,3
+2426,pre-alpine (1200-1800 m),True,0
+2436,pre-alpine (1200-1800 m),True,4
+2605,pre-alpine (1200-1800 m),True,2
+2185,"alpine, little glacier (> 1800 m, glacier < 5 %)",True,4
+2232,"alpine, little glacier (> 1800 m, glacier < 5 %)",True,3
+2319,"alpine, little glacier (> 1800 m, glacier < 5 %)",True,1
+2366,"alpine, little glacier (> 1800 m, glacier < 5 %)",True,2
+2219,glacierised (glacier > 10 %),False,4
+2262,glacierised (glacier > 10 %),False,1
+2269,glacierised (glacier > 10 %),False,0
+2299,glacierised (glacier > 10 %),False,4

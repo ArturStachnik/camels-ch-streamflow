@@ -1,0 +1,39 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting2_fold3: 35 basins from runs/gbm_setting2_fold3/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting2_fold3]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting2_fold3]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting2_fold3]: basins in results equal fold3_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting2_fold3]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 10, "n_with_obs_zero": 1, "n_with_sim_zero": 9, "basins": ["2117", "2202", "2206", "2283", "2356", "2409", "2420", "2437", "2603", "4004"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[gbm_setting2_fold3][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold3][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold3][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting2_fold3][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting2_fold3]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting2_fold3]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting2_fold3]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[gbm_setting2_fold3]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                   member subset metric  n_basins  n_nan   median      mean        p05       p25      p75      p95        min      max  n_below_zero
+       gbm_setting2_fold3    all    NSE        35      0 0.616201 -1.772259  -8.507422  0.380068 0.761935 0.843294 -49.884762 0.858198           7.0
+       gbm_setting2_fold3    all    KGE        35      0 0.611740  0.038043  -2.141813  0.016384 0.731267 0.866765  -5.021390 0.884287           9.0
+benchmark_climatology_doy    all    NSE        35      0 0.043173  0.117605  -0.091183 -0.012559 0.163791 0.606843  -0.227736 0.659531          11.0
+benchmark_climatology_doy    all    KGE        35      0 0.059566  0.150108  -0.143751 -0.085491 0.284220 0.732395  -0.192718 0.821196          14.0
+         benchmark_prevah    all    NSE        35      0 0.458713 -3.896446 -20.077853 -0.041883 0.657774 0.773969 -81.137245 0.836516           9.0
+         benchmark_prevah    all    KGE        35      0 0.443386 -0.227654  -3.539320 -0.088996 0.592230 0.814238  -6.894406 0.880116          10.0
+
+All hard checks passed (1 soft finding(s)).
+Outputs written to results/verification_gbm/setting2_fold3

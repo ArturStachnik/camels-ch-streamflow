@@ -1,0 +1,39 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting1: 205 basins from runs/gbm_setting1/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting1]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting1]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting1]: basins in results equal basins_all.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting1]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 94, "n_with_obs_zero": 3, "n_with_sim_zero": 92, "basins": ["2044", "2053", "2070", "2086", "2087", "2104", "2106", "2117", "2155", "2161", "2167", "2176", "2185", "2199", "2202", "2206", "2210", "2219", "2232", "2239", "2244", "2247", "2251", "2252", "2256", "2262", "2265", "2268", "2269", "2270", "2282", "2283", "2290", "2299", "2300", "2308", "2312", "2319", "2346", "2349", ... (truncated, see verification_report.json)
+[PASS   ] library_vs_own[gbm_setting1][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting1][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting1][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting1][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting1]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting1]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting1]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[gbm_setting1]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                   member subset metric  n_basins  n_nan   median      mean       p05       p25      p75      p95         min      max  n_below_zero
+             gbm_setting1    all    NSE       205      0 0.841638  0.796567  0.559378  0.797342 0.873197 0.905185   -1.436391 0.954321           2.0
+             gbm_setting1    all    KGE       205      0 0.828414  0.804171  0.571065  0.758229 0.883307 0.925700    0.143697 0.957448           0.0
+benchmark_climatology_doy    all    NSE       205      0 0.096871  0.213369 -0.051702  0.000874 0.477360 0.722493   -0.611279 0.836628          50.0
+benchmark_climatology_doy    all    KGE       205      0 0.161298  0.267015 -0.158005 -0.027884 0.652167 0.815578   -0.233906 0.876332          59.0
+         benchmark_prevah    all    NSE       205      0 0.518960 -5.020634 -5.049796  0.059105 0.690754 0.805743 -848.047267 0.936267          47.0
+         benchmark_prevah    all    KGE       205      0 0.597225  0.160247 -1.635372  0.321471 0.737988 0.867522  -23.268977 0.911148          29.0
+
+All hard checks passed (1 soft finding(s)).
+Outputs written to results/verification_gbm/setting1

@@ -1,0 +1,39 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded gbm_setting2_fold2: 36 basins from runs/gbm_setting2_fold2/test/model_epoch001/test_results.p
+[PASS   ] structure[gbm_setting2_fold2]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[gbm_setting2_fold2]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[gbm_setting2_fold2]: basins in results equal fold2_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[PASS   ] sim_non_negative: simulations are non-negative
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[gbm_setting2_fold2]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 6, "n_with_obs_zero": 0, "n_with_sim_zero": 6, "basins": ["2078", "2374", "2490", "2604", "2612", "5001"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[gbm_setting2_fold2][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold2][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[gbm_setting2_fold2][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[gbm_setting2_fold2][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[gbm_setting2_fold2]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[gbm_setting2_fold2]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[gbm_setting2_fold2]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[gbm_setting2_fold2]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                   member subset metric  n_basins  n_nan   median     mean       p05       p25      p75      p95        min      max  n_below_zero
+       gbm_setting2_fold2    all    NSE        36      0 0.712693 0.567423  0.038126  0.627134 0.766835 0.838317  -2.874515 0.861681           2.0
+       gbm_setting2_fold2    all    KGE        36      0 0.648688 0.577386  0.227328  0.571473 0.709380 0.819816  -0.949563 0.866081           2.0
+benchmark_climatology_doy    all    NSE        36      0 0.024285 0.147695 -0.049237 -0.023001 0.198487 0.711973  -0.061050 0.800658          15.0
+benchmark_climatology_doy    all    KGE        36      0 0.002432 0.137799 -0.208168 -0.134085 0.330839 0.825728  -0.228221 0.876332          18.0
+         benchmark_prevah    all    NSE        36      0 0.656480 0.043292 -1.397257  0.561705 0.763457 0.817522 -12.831092 0.866690           6.0
+         benchmark_prevah    all    KGE        36      0 0.710550 0.500896 -0.190314  0.515677 0.804634 0.873958  -2.638751 0.885180           4.0
+
+All hard checks passed (1 soft finding(s)).
+Outputs written to results/verification_gbm/setting2_fold2
