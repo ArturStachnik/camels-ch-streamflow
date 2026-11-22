@@ -1,0 +1,19 @@
+{
+  "n_units": 5,
+  "n_checks": 110,
+  "n_hard_failures": 2,
+  "n_alarms": 2,
+  "n_not_applicable_alarms_triggered": 0,
+  "n_findings": 10,
+  "failed": [
+    {
+      "unit": "fold0",
+      "check": "alarm_one_day_shift[continue_training_from_epoch010]"
+    },
+    {
+      "unit": "fold2",
+      "check": "alarm_one_day_shift[continue_training_from_epoch010]"
+    }
+  ],
+  "overall": "fail"
+}

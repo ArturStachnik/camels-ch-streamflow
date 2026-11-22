@@ -12,6 +12,13 @@ The baseline can be reported with the caveats listed in `RESULTS.md`. No leakage
 0.86 for a single model is consistent with published results for the same kind of experiment
 (Lees et al. (2021), LSTM, 669 catchments of CAMELS-GB, gauged basins, split in time, median 0.88).
 
+## Verdict for settings 2 and 3 and gradient boosting
+
+They can be reported with the caveats in `RESULTS.md` and section 8. No leakage was found. Nothing looks too good. The
+ungauged LSTM is weak, and that result is reported as it is. The verifier raised two kinds of alarm. The one-day shift
+in lake and karst basins was examined and is a property of the ungauged models. The alarm on single-basin runs comes
+from a bug in the verification wrapper.
+
 ## 1. Design audit, before training
 
 Done on the first version of the pipeline, before any 30-epoch run.
@@ -23,8 +30,8 @@ Done on the first version of the pipeline, before any 30-epoch run.
   are recomputed from the training period.
 - **Fixed.** Basins with discharge above twice the precipitation, duplicated records and catchments without complete
   observation-based forcing are excluded. The list and the reasons are in `results/data_report/basin_report.csv`.
-- **Open, for setting 2.** Almost all basins are nested with another one. Random folds over basins would put a gauge and
-  its upstream gauge in different folds. Setting 2 needs grouped folds.
+- **Addressed in setting 2.** Almost all basins are nested with another one. Random folds over basins would put a gauge
+  and its upstream gauge in different folds. Setting 2 uses grouped folds (section 9).
 - **Carried into the report.** FLV is unstable with flows near zero, the NSE loss gives more weight to basins with low
   variance, and the human-influence attributes exist only inside Switzerland.
 
@@ -138,7 +145,62 @@ simulations as they come out of the network. The report uses the same convention
 
 Their absence from the last years changes the yearly median by at most 0.008.
 
-## 8. Not verified
+## 8. Settings 2 and 3 and gradient boosting
+
+The metric verification was run on every unit with `verification/verify_all.py`, and a separate audit,
+`audit/audit_transfer.py`, was written and run by a reviewer who did not build the models. Its outputs are in
+`results/audit_transfer/`.
+
+**Metric verification**
+
+| Group | Units | Checks | Hard failures | Of which alarms | Findings |
+|---|---:|---:|---:|---:|---:|
+| LSTM, setting 2 | 5 | 110 | 2 | 2 | 10 |
+| Boosting, setting 1 | 1 | 22 | 0 | 0 | 1 |
+| Boosting, setting 2 | 5 | 110 | 1 | 1 | 5 |
+| Setting 3, 120 single-basin runs | 120 | 2640 | 5 | 5 | 107 |
+
+- The alarms of setting 2 are the one-day shift in LSTM folds 0 and 2 and boosting fold 0. They are explained in
+  `RESULTS.md` and examined below.
+- All 5 hard failures of setting 3 are the alarm on the median NSE across basins (alarm_median_nse_above_0.90).
+  With one basin per run the median is the NSE of that basin. `verify_all.py` was meant to exempt this alarm for
+  single-basin runs, but it compares the check name exactly, and the names carry the run name as a suffix, so the
+  exemption never applied. The verification code is frozen and was not changed. The failures are left as they are.
+
+**Audit**
+
+0 of 14 entries failed.
+
+| Check | Outcome | What was found |
+|---|---|---|
+| Normalisation from the training basins and period of each fold | pass | Saved scalers equal the statistics of each fold's train basins in the training period (max rel. diff 1.0e-07); any other basin set or period differs by at least 0.040. |
+| No nested pair of basins split across training and test | pass | Recomputed from polygons, gauge points and raw H1/H2 hierarchy: 203 related pairs, all in containment_pairs.csv, none across train/test; largest cross-fold overlap 1.1e-05 of the smaller polygon. |
+| Fine-tuning starts from a model that never saw the basin | pass | Every fine-tune run starts from epoch 30 of the fold where its basin (and every related basin) was a test basin, with the base model's scaler byte-identical. |
+| Setting-3 training windows, including warm-up | pass | Training targets rebuilt with NeuralHydrology are exactly the last N years ending 2005-09-30 in 120/120 runs; the closest training input lies 1463 days before the first test input (incl. 365-day warm-up). |
+| Gradient boosting uses no future forcing and no discharge | pass | Perturbing forcing after a date changes no feature before it; no discharge feature; training rows equal the training-period count; saved models reproduce the saved test simulations exactly; 1500 trees, no early stopping. |
+| No streamflow-derived input | pass | No hydrological signature, discharge, lagged or autoregressive input in 131 run configurations; highest \|r\| of a static with q_mean is 0.52 (p_mean). |
+| No model selection on the test period | pass | Each unit has exactly one test evaluation, at its fixed final epoch; validation in setting 2 uses training basins only and selects nothing. |
+| Folds 0 to 2 were interrupted and resumed | pass | Folds 0-2 were evaluated with continue_training's epoch-30 file, written before epoch 31 began; CPU re-inference of 15 basins from those weights reproduces the saved simulations to CPU/GPU rounding (max abs diff 0.042 mm/d; NSE differs by at most 1.7e-04 relative, the largest absolute change being in basin 2239 with NSE -85). No file records a hash at save time; the evidence is the log path, the file time (= epoch-30 log line, before epoch 31) and the re-inference. Epochs 31-32 left no weights and nothing from them was evaluated. |
+| Folds 3 and 4 trained on another GPU | pass | Configurations of folds 3-4 equal folds 0-2 except fold-specific keys (basin files, seed, names); GPU kernels are not deterministic, so no fold is bit-reproducible. |
+| Skill with and without human-influenced basins | finding | Setting-2 LSTM median NSE 0.580 on 178 basins, 0.627 on 75 near-natural and 0.539 on the rest (gauged setting-1 seed 1 on the same basins 0.859). |
+| A test result seen before the setting-3 runs | finding | All 120/120 setting-3 run configs match the committed recipe, but the script was edited at 2026-11-21 10:11 and first committed in b189c48, after the scratch trial (01:37) and after all scratch runs; git cannot prove the recipe predates the printed NSE, only that no run used a different one. |
+| One-day-shift alarms | finding | 18/178 basins peak one day early in setting 2 (best lag +1: 14); only 1 of them (2239, regulated Spoel) is also shifted when gauged with the same inputs and observations; 10 are lake-influenced (3 % of the other basins) and 8 are Doubs karst gauges forming one group in fold 0; observations and forcing equal the raw files on the same day (max diff 8.5e-06) and differ by at least 0.62 mm/d when shifted a day; the shifted basins have low, not high, NSE; read as a timing error of the ungauged model, not leakage or misalignment. |
+| Single-basin runs above NSE 0.90 | finding | 5 single-basin runs exceed NSE 0.90 (2202 1/2/5y, 2262 2/5y); both basins already reach 0.90-0.94 when gauged in setting 1, the runs stay within -0.016 to +0.017 of setting-1 seed 1, test observations equal setting 1, and every training window ends 2005-09-30; plausible, no leakage found. Across all 60 fine-tune runs 13 beat setting-1 seed 1, by at most +0.059 (basin 2299). |
+| Exemption in verify_all.py that does not apply | finding | verify_all.py exempts 'alarm_median_nse_above_0.90' by exact id, but ids carry a '[run]' suffix, so the exemption never applies; all hard failures of setting 3 are this not-applicable alarm. |
+
+**What this means**
+
+- No leakage was found in settings 2 and 3 or in the boosting models.
+- The recipes of setting 3 used in all 120 runs are those in the committed script. The NSE of the first scratch run
+  (basin 2126, one year) and of one fine-tuning run were printed while the remaining runs were being prepared, and the
+  script was committed after the runs. Git cannot show that the recipe was fixed before those numbers were seen. It
+  was not changed after them, but this rests on the modeller's word.
+- The one-day shift is a timing error of the ungauged models in lake and karst basins. Inputs and observations are
+  aligned with the raw files, and the same basins are on time when gauged.
+- Folds 3 and 4 ran on a different GPU. GPU training is not bit-reproducible, so no fold can be repeated exactly on
+  any machine.
+
+## 9. Not verified
 
 - Inference was not repeated from the saved weights. That the result files belong to the weights of epoch 30 rests on
   the training log and on the file dates.
@@ -147,5 +209,8 @@ Their absence from the last years changes the yearly median by at most 0.008.
 - Internal changes of the gridded forcing product, such as changes in the station network, are only visible indirectly.
 - Whether PREVAH was calibrated on years of the test period.
 - The cause of the isolated negative value in section 5.
+- That the setting-3 recipe was fixed before the printed trial result (section 8).
+- How much of the spread between setting-2 folds and between setting-3 runs is due to the seed. Settings 2 and 3 use
+  one seed per model.
 - Whether the pipeline test with three epochs, run before the design audit, influenced any decision. It was evaluated
   on the validation period only and nothing was tuned afterwards, but a log cannot prove an absence.

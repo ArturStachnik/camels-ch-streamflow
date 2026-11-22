@@ -1,0 +1,21 @@
+Basin,Gauge,River,Fold,Lake flag,Carbonate rock (%),LSTM ungauged,Boosting ungauged,"LSTM gauged, seeds shifted"
+2104,Weesen-Biäsche,Linth,0,yes,48,shifted,shifted,0 of 3
+2210,Ocourt,Doubs,0,no,74,shifted,shifted,0 of 3
+2247,Sortie du lac des Brenets,Doubs,0,no,64,-,shifted,0 of 3
+2270,Combe des Sarrasins,Doubs,0,no,68,shifted,shifted,0 of 3
+2370,Le Noirmont-La Goule,Doubs,0,no,69,shifted,shifted,0 of 3
+5012,Oye-et-Pallet,Le Doubs,0,yes,61,shifted,shifted,0 of 3
+5013,Doubs,Le Doubs,0,no,64,-,shifted,0 of 3
+5014,la Cluse-et-Mijoux [Pontarlier amont],Le Doubs,0,no,64,shifted,shifted,0 of 3
+5030,Fournet-Blancheroche [La Rasse],Le Doubs,0,no,66,shifted,shifted,0 of 3
+5032,Goumois,Le Doubs,0,no,72,shifted,shifted,0 of 3
+2239,Punt dal Gall,Spöl,1,no,38,shifted,shifted,3 of 3
+2378,Orbe-Le Chalet,Orbe,1,yes,80,shifted,-,0 of 3
+2417,Oberkirch,Suhre,1,yes,0,shifted,shifted,0 of 3
+2102,Sarnen,Sarner Aa,2,yes,75,shifted,shifted,0 of 3
+2416,Hitzkirch-Richensee,Aabach,2,yes,0,shifted,shifted,0 of 3
+2457,Ringgenberg-Goldswil,Aare,2,yes,42,shifted,shifted,0 of 3
+2635,Einsiedeln-Gross,Grossbach,2,no,93,shifted,-,0 of 3
+2167,Ponte Tresa-Rocchetta,Tresa,3,yes,28,shifted,shifted,0 of 3
+2125,Frauenthal,Lorze,4,yes,0,shifted,-,0 of 3
+2477,Zug-Letzi,Lorze,4,yes,0,shifted,-,0 of 3

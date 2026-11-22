@@ -1,0 +1,1027 @@
+{
+  "signature_names_from_raw": [
+    "Q5",
+    "Q95",
+    "baseflow_index_landson",
+    "hfd_mean",
+    "high_q_dur",
+    "high_q_freq",
+    "low_q_dur",
+    "low_q_freq",
+    "q_mean",
+    "runoff_ratio",
+    "slope_fdc",
+    "stream_elas",
+    "zero_q_freq"
+  ],
+  "1_scaler": {
+    "fold0": {
+      "max_rel_diff_by_variant": {
+        "fold train basins, training period": 8.119283745262619e-08,
+        "fold train basins, training + validation period": 0.04750107190597152,
+        "fold train + test basins, training period": 0.22926758334703204,
+        "all 205 basins, training period": 8.774745483513497
+      },
+      "scaler_identical_in_original_and_resumed_folder": true,
+      "n_train_basins": 142
+    },
+    "fold1": {
+      "max_rel_diff_by_variant": {
+        "fold train basins, training period": 1.0425929228196486e-07,
+        "fold train basins, training + validation period": 0.0400328221615864,
+        "fold train + test basins, training period": 0.5433320303136374,
+        "all 205 basins, training period": 9.26984078359348
+      },
+      "scaler_identical_in_original_and_resumed_folder": true,
+      "n_train_basins": 142
+    },
+    "fold2": {
+      "max_rel_diff_by_variant": {
+        "fold train basins, training period": 8.085850307846742e-08,
+        "fold train basins, training + validation period": 0.06879630523301292,
+        "fold train + test basins, training period": 0.4935921494143248,
+        "all 205 basins, training period": 8.254356839014816
+      },
+      "scaler_identical_in_original_and_resumed_folder": true,
+      "n_train_basins": 142
+    },
+    "fold3": {
+      "max_rel_diff_by_variant": {
+        "fold train basins, training period": 4.59184206839314e-08,
+        "fold train basins, training + validation period": 0.06255441577222041,
+        "fold train + test basins, training period": 0.6610451323770498,
+        "all 205 basins, training period": 8.366960638390772
+      },
+      "scaler_identical_in_original_and_resumed_folder": true,
+      "n_train_basins": 143
+    },
+    "fold4": {
+      "max_rel_diff_by_variant": {
+        "fold train basins, training period": 6.516319110655991e-08,
+        "fold train basins, training + validation period": 0.05028377166165243,
+        "fold train + test basins, training period": 0.3870940700491782,
+        "all 205 basins, training period": 8.355173027693455
+      },
+      "scaler_identical_in_original_and_resumed_folder": true,
+      "n_train_basins": 143
+    },
+    "pass": true
+  },
+  "2_containment": {
+    "n_basins": 178,
+    "n_pairs_with_any_overlap": 615,
+    "n_related_pairs_mine": 203,
+    "n_related_pairs_mine_not_in_csv": 0,
+    "n_cross_fold_pairs_related": 0,
+    "n_cross_fold_pairs_overlap_gt_0p5": 0,
+    "n_cross_fold_pairs_overlap_gt_0p1": 0,
+    "n_cross_fold_pairs_gauge_inside_other": 0,
+    "n_cross_fold_pairs_raw_hierarchy": 0,
+    "max_cross_fold_overlap": 1.1294959232838108e-05,
+    "largest_cross_fold_overlaps": [
+      {
+        "a": "2067",
+        "b": "3032",
+        "overlap_frac_of_smaller": 0.0,
+        "gauge_of_smaller_inside_larger": false,
+        "gauge_of_smaller_dist_to_larger_m": 5156.6047
+      },
+      {
+        "a": "2378",
+        "b": "5010",
+        "overlap_frac_of_smaller": 0.0,
+        "gauge_of_smaller_inside_larger": false,
+        "gauge_of_smaller_dist_to_larger_m": 2780.9964
+      },
+      {
+        "a": "5010",
+        "b": "5016",
+        "overlap_frac_of_smaller": 0.0,
+        "gauge_of_smaller_inside_larger": false,
+        "gauge_of_smaller_dist_to_larger_m": 2780.9964
+      },
+      {
+        "a": "5009",
+        "b": "5016",
+        "overlap_frac_of_smaller": 0.0,
+        "gauge_of_smaller_inside_larger": false,
+        "gauge_of_smaller_dist_to_larger_m": 1959.9521
+      },
+      {
+        "a": "5012",
+        "b": "5016",
+        "overlap_frac_of_smaller": 0.0,
+        "gauge_of_smaller_inside_larger": false,
+        "gauge_of_smaller_dist_to_larger_m": 1959.9521
+      }
+    ],
+    "folds_partition_basins_and_large_basins_excluded": true,
+    "groups_csv_fold_matches_test_files": true,
+    "max_area_km2_in_setting2": 1975.7781471006786,
+    "min_area_km2_excluded": 2152.0,
+    "pass": true
+  },
+  "3_finetune_bases": {
+    "n_runs": 60,
+    "n_basins": 20,
+    "pass_": true,
+    "n_names_with_more_than_one_run_dir": 0
+  },
+  "4_setting3_windows": {
+    "n_runs": 120,
+    "n_window_ok": 120,
+    "min_gap_days_training_input_to_test_input": 1463,
+    "max_last_input_day": "2005-09-30",
+    "scratch_scaler_max_rel_diff_window": 7.423892897365142e-07,
+    "scratch_scaler_min_of_max_rel_diff_if_to_test_end": 0.05613255086891802,
+    "pass": true
+  },
+  "a_recipes": {
+    "n_runs": 120,
+    "n_matching": 120,
+    "commits_touching_script": [
+      "b189c48 2026-11-21 13:11:47 +0100"
+    ],
+    "script_differs_from_HEAD": false,
+    "script_mtime": "2026-11-21 10:11:40.401050329+01:00",
+    "trial_log_mtime": "2026-11-21 01:37:29.145048618+01:00",
+    "scratch_run_starts": [
+      "2111_013655",
+      "2111_023917"
+    ],
+    "finetune_run_starts": [
+      "2111_130818",
+      "2211_032336"
+    ]
+  },
+  "5_gbm": {
+    "causality_max_change_before_cut": 0.0,
+    "n_runs": 6,
+    "all_rows_match_training_period": true,
+    "max_abs_diff_repredicted": 0.0,
+    "any_discharge_feature": false,
+    "n_trees": [
+      1500
+    ],
+    "code_uses_early_stopping": false,
+    "weights_from_training_period_in_code": true,
+    "pass": true
+  },
+  "6_statics": {
+    "n_configs": 131,
+    "n_with_signature_static": 0,
+    "n_with_discharge_like_dynamic": 0,
+    "n_with_lagged_or_autoregressive": 0,
+    "n_attributes_compared_with_raw": 36,
+    "max_abs_diff_attributes_vs_raw": 0.0,
+    "attributes_not_in_raw_files": [
+      "frac_snow",
+      "glac_frac",
+      "high_prec_dur",
+      "high_prec_freq",
+      "low_prec_dur",
+      "low_prec_freq",
+      "p_mean",
+      "p_seasonality",
+      "t_mean"
+    ],
+    "max_abs_corr_static_vs_q_mean": {
+      "attribute": "p_mean",
+      "r": 0.5221229217126241
+    },
+    "pass": true
+  },
+  "7_selection": {
+    "n_units": 134,
+    "n_not_only_final": 0,
+    "setting2_epochs": [
+      30.0
+    ],
+    "setting2_validation_on_test_basins": 0,
+    "setting3_validate_every": [
+      "nan"
+    ],
+    "setting3_names_with_more_than_one_dir": 0,
+    "pass": true
+  },
+  "8_resume": {
+    "per_fold": [
+      {
+        "fold": 0,
+        "resumed": true,
+        "resumed_from_epoch": 10.0,
+        "epoch30_logged_at": "2026-11-21 12:54:23",
+        "weights_mtime": "2026-11-21 12:54:23.884946585",
+        "epoch31_logged_at": "2026-11-21 13:02:45",
+        "last_epoch_logged_in_run_log": 31,
+        "test_eval_used_epoch030_of_final_dir": true,
+        "weights_written_before_epoch31": true
+      },
+      {
+        "fold": 1,
+        "resumed": true,
+        "resumed_from_epoch": 10.0,
+        "epoch30_logged_at": "2026-11-21 12:51:27",
+        "weights_mtime": "2026-11-21 12:51:27.337983131",
+        "epoch31_logged_at": "2026-11-21 12:59:23",
+        "last_epoch_logged_in_run_log": 31,
+        "test_eval_used_epoch030_of_final_dir": true,
+        "weights_written_before_epoch31": true
+      },
+      {
+        "fold": 2,
+        "resumed": true,
+        "resumed_from_epoch": 10.0,
+        "epoch30_logged_at": "2026-11-21 12:52:22",
+        "weights_mtime": "2026-11-21 12:52:22.669931650",
+        "epoch31_logged_at": "2026-11-21 13:00:24",
+        "last_epoch_logged_in_run_log": 31,
+        "test_eval_used_epoch030_of_final_dir": true,
+        "weights_written_before_epoch31": true
+      },
+      {
+        "fold": 3,
+        "resumed": false,
+        "resumed_from_epoch": NaN,
+        "epoch30_logged_at": "2026-11-22 00:03:51",
+        "weights_mtime": "2026-11-22 03:05:52",
+        "epoch31_logged_at": NaN,
+        "last_epoch_logged_in_run_log": 30,
+        "test_eval_used_epoch030_of_final_dir": true,
+        "weights_written_before_epoch31": true
+      },
+      {
+        "fold": 4,
+        "resumed": false,
+        "resumed_from_epoch": NaN,
+        "epoch30_logged_at": "2026-11-22 00:02:57",
+        "weights_mtime": "2026-11-22 03:05:52",
+        "epoch31_logged_at": NaN,
+        "last_epoch_logged_in_run_log": 30,
+        "test_eval_used_epoch030_of_final_dir": true,
+        "weights_written_before_epoch31": true
+      }
+    ],
+    "reinference_max_abs_diff": 0.041864871978759766,
+    "reinference_max_abs_diff_NSE": 0.014230041223669332,
+    "reinference_max_rel_diff_NSE": 0.0001672408923772512,
+    "reinference_n_basins": 15,
+    "pass": true
+  },
+  "9_fold_configs": {
+    "n_configs": 8,
+    "configs_with_nonfold_differences": [],
+    "seeds": {
+      "0": 200,
+      "0_resumed": 200,
+      "1": 201,
+      "1_resumed": 201,
+      "2": 202,
+      "2_resumed": 202,
+      "3": 203,
+      "4": 204
+    },
+    "gpu_and_validation": {
+      "0": "not recorded in output.log",
+      "0_val_median_NSE_epoch30": 0.874418705701828,
+      "1": "not recorded in output.log",
+      "1_val_median_NSE_epoch30": 0.8627575635910034,
+      "2": "not recorded in output.log",
+      "2_val_median_NSE_epoch30": 0.8537843525409698,
+      "3": "not recorded in output.log",
+      "3_val_median_NSE_epoch30": 0.8691501617431641,
+      "4": "not recorded in output.log",
+      "4_val_median_NSE_epoch30": 0.859140157699585
+    },
+    "pass": true
+  },
+  "10_skill": {
+    "table": [
+      {
+        "group": "All setting-2 basins",
+        "n": 178,
+        "median_NSE_lstm_s2": 0.5796,
+        "p05_NSE_lstm_s2": -5.5488,
+        "n_below0_lstm_s2": 36,
+        "median_NSE_gbm_s2": 0.6583,
+        "p05_NSE_gbm_s2": -2.8953,
+        "n_below0_gbm_s2": 21,
+        "median_NSE_lstm_s1_seed1": 0.8592,
+        "p05_NSE_lstm_s1_seed1": 0.5589,
+        "n_below0_lstm_s1_seed1": 2,
+        "median_NSE_lstm_s1_mean": 0.8717,
+        "p05_NSE_lstm_s1_mean": 0.5727,
+        "n_below0_lstm_s1_mean": 2,
+        "median_NSE_gbm_s1": 0.8386,
+        "p05_NSE_gbm_s1": 0.5565,
+        "n_below0_gbm_s1": 2
+      },
+      {
+        "group": "Near-natural",
+        "n": 75,
+        "median_NSE_lstm_s2": 0.6269,
+        "p05_NSE_lstm_s2": -1.2835,
+        "n_below0_lstm_s2": 9,
+        "median_NSE_gbm_s2": 0.7002,
+        "p05_NSE_gbm_s2": -0.0439,
+        "n_below0_gbm_s2": 4,
+        "median_NSE_lstm_s1_seed1": 0.8571,
+        "p05_NSE_lstm_s1_seed1": 0.662,
+        "n_below0_lstm_s1_seed1": 0,
+        "median_NSE_lstm_s1_mean": 0.8679,
+        "p05_NSE_lstm_s1_mean": 0.7009,
+        "n_below0_lstm_s1_mean": 0,
+        "median_NSE_gbm_s1": 0.8323,
+        "p05_NSE_gbm_s1": 0.6618,
+        "n_below0_gbm_s1": 0
+      },
+      {
+        "group": "Not near-natural",
+        "n": 103,
+        "median_NSE_lstm_s2": 0.5391,
+        "p05_NSE_lstm_s2": -7.3775,
+        "n_below0_lstm_s2": 27,
+        "median_NSE_gbm_s2": 0.6033,
+        "p05_NSE_gbm_s2": -6.3644,
+        "n_below0_gbm_s2": 17,
+        "median_NSE_lstm_s1_seed1": 0.8621,
+        "p05_NSE_lstm_s1_seed1": 0.4839,
+        "n_below0_lstm_s1_seed1": 2,
+        "median_NSE_lstm_s1_mean": 0.8821,
+        "p05_NSE_lstm_s1_mean": 0.5121,
+        "n_below0_lstm_s1_mean": 2,
+        "median_NSE_gbm_s1": 0.8408,
+        "p05_NSE_gbm_s1": 0.5261,
+        "n_below0_gbm_s1": 2
+      },
+      {
+        "group": "regulated",
+        "n": 54,
+        "median_NSE_lstm_s2": 0.6235,
+        "p05_NSE_lstm_s2": -8.1761,
+        "n_below0_lstm_s2": 12,
+        "median_NSE_gbm_s2": 0.6061,
+        "p05_NSE_gbm_s2": -8.5887,
+        "n_below0_gbm_s2": 10,
+        "median_NSE_lstm_s1_seed1": 0.8591,
+        "p05_NSE_lstm_s1_seed1": 0.4695,
+        "n_below0_lstm_s1_seed1": 1,
+        "median_NSE_lstm_s1_mean": 0.8845,
+        "p05_NSE_lstm_s1_mean": 0.5018,
+        "n_below0_lstm_s1_mean": 1,
+        "median_NSE_gbm_s1": 0.8402,
+        "p05_NSE_gbm_s1": 0.4993,
+        "n_below0_gbm_s1": 1
+      },
+      {
+        "group": "reservoir_major",
+        "n": 28,
+        "median_NSE_lstm_s2": 0.4093,
+        "p05_NSE_lstm_s2": -58.6777,
+        "n_below0_lstm_s2": 8,
+        "median_NSE_gbm_s2": 0.5384,
+        "p05_NSE_gbm_s2": -35.8012,
+        "n_below0_gbm_s2": 8,
+        "median_NSE_lstm_s1_seed1": 0.8184,
+        "p05_NSE_lstm_s1_seed1": 0.3998,
+        "n_below0_lstm_s1_seed1": 1,
+        "median_NSE_lstm_s1_mean": 0.8294,
+        "p05_NSE_lstm_s1_mean": 0.3678,
+        "n_below0_lstm_s1_mean": 1,
+        "median_NSE_gbm_s1": 0.8041,
+        "p05_NSE_gbm_s1": 0.3247,
+        "n_below0_gbm_s1": 1
+      },
+      {
+        "group": "glacier",
+        "n": 25,
+        "median_NSE_lstm_s2": 0.6637,
+        "p05_NSE_lstm_s2": -8.4356,
+        "n_below0_lstm_s2": 4,
+        "median_NSE_gbm_s2": 0.7677,
+        "p05_NSE_gbm_s2": -6.9225,
+        "n_below0_gbm_s2": 4,
+        "median_NSE_lstm_s1_seed1": 0.9004,
+        "p05_NSE_lstm_s1_seed1": 0.6534,
+        "n_below0_lstm_s1_seed1": 0,
+        "median_NSE_lstm_s1_mean": 0.9002,
+        "p05_NSE_lstm_s1_mean": 0.6922,
+        "n_below0_lstm_s1_mean": 0,
+        "median_NSE_gbm_s1": 0.8722,
+        "p05_NSE_gbm_s1": 0.6527,
+        "n_below0_gbm_s1": 0
+      },
+      {
+        "group": "lake",
+        "n": 15,
+        "median_NSE_lstm_s2": 0.4938,
+        "p05_NSE_lstm_s2": -0.8006,
+        "n_below0_lstm_s2": 5,
+        "median_NSE_gbm_s2": 0.5957,
+        "p05_NSE_gbm_s2": -0.0965,
+        "n_below0_gbm_s2": 1,
+        "median_NSE_lstm_s1_seed1": 0.8776,
+        "p05_NSE_lstm_s1_seed1": 0.7766,
+        "n_below0_lstm_s1_seed1": 0,
+        "median_NSE_lstm_s1_mean": 0.8821,
+        "p05_NSE_lstm_s1_mean": 0.8047,
+        "n_below0_lstm_s1_mean": 0,
+        "median_NSE_gbm_s1": 0.8578,
+        "p05_NSE_gbm_s1": 0.7776,
+        "n_below0_gbm_s1": 0
+      },
+      {
+        "group": "water_balance_open",
+        "n": 18,
+        "median_NSE_lstm_s2": -3.4851,
+        "p05_NSE_lstm_s2": -85.5947,
+        "n_below0_lstm_s2": 13,
+        "median_NSE_gbm_s2": -2.6959,
+        "p05_NSE_gbm_s2": -65.853,
+        "n_below0_gbm_s2": 13,
+        "median_NSE_lstm_s1_seed1": 0.7826,
+        "p05_NSE_lstm_s1_seed1": -0.5757,
+        "n_below0_lstm_s1_seed1": 2,
+        "median_NSE_lstm_s1_mean": 0.8048,
+        "p05_NSE_lstm_s1_mean": -0.5975,
+        "n_below0_lstm_s1_mean": 2,
+        "median_NSE_gbm_s1": 0.7713,
+        "p05_NSE_gbm_s1": -0.6431,
+        "n_below0_gbm_s1": 2
+      },
+      {
+        "group": "human_info_missing",
+        "n": 26,
+        "median_NSE_lstm_s2": 0.436,
+        "p05_NSE_lstm_s2": -4.4592,
+        "n_below0_lstm_s2": 10,
+        "median_NSE_gbm_s2": 0.5127,
+        "p05_NSE_gbm_s2": -3.6586,
+        "n_below0_gbm_s2": 3,
+        "median_NSE_lstm_s1_seed1": 0.8504,
+        "p05_NSE_lstm_s1_seed1": 0.5719,
+        "n_below0_lstm_s1_seed1": 0,
+        "median_NSE_lstm_s1_mean": 0.8603,
+        "p05_NSE_lstm_s1_mean": 0.5775,
+        "n_below0_lstm_s1_mean": 0,
+        "median_NSE_gbm_s1": 0.8175,
+        "p05_NSE_gbm_s1": 0.6006,
+        "n_below0_gbm_s1": 0
+      }
+    ],
+    "by_fold": {
+      "0": {
+        "NSE_lstm_s2": 0.4584,
+        "NSE_gbm_s2": 0.5529,
+        "NSE_lstm_s1_seed1": 0.852,
+        "NSE_lstm_s1_mean": 0.863,
+        "NSE_gbm_s1": 0.8173
+      },
+      "1": {
+        "NSE_lstm_s2": 0.434,
+        "NSE_gbm_s2": 0.6234,
+        "NSE_lstm_s1_seed1": 0.8752,
+        "NSE_lstm_s1_mean": 0.88,
+        "NSE_gbm_s1": 0.8604
+      },
+      "2": {
+        "NSE_lstm_s2": 0.6205,
+        "NSE_gbm_s2": 0.7127,
+        "NSE_lstm_s1_seed1": 0.873,
+        "NSE_lstm_s1_mean": 0.8782,
+        "NSE_gbm_s1": 0.8466
+      },
+      "3": {
+        "NSE_lstm_s2": 0.5371,
+        "NSE_gbm_s2": 0.6162,
+        "NSE_lstm_s1_seed1": 0.828,
+        "NSE_lstm_s1_mean": 0.8461,
+        "NSE_gbm_s1": 0.8283
+      },
+      "4": {
+        "NSE_lstm_s2": 0.689,
+        "NSE_gbm_s2": 0.6949,
+        "NSE_lstm_s1_seed1": 0.8577,
+        "NSE_lstm_s1_mean": 0.8704,
+        "NSE_gbm_s1": 0.8319
+      }
+    },
+    "max_abs_diff_NSE_vs_verifier": 0.0
+  },
+  "b_one_day_shift": {
+    "lstm_s2": {
+      "n_shifted": 18,
+      "n_best_lag_plus1": 14,
+      "n_best_lag_minus1": 3
+    },
+    "gbm_s2": {
+      "n_shifted": 16,
+      "n_best_lag_plus1": 13,
+      "n_best_lag_minus1": 0
+    },
+    "lstm_s1_seed1": {
+      "n_shifted": 1,
+      "n_best_lag_plus1": 1,
+      "n_best_lag_minus1": 0
+    },
+    "lstm_s1_mean": {
+      "n_shifted": 1,
+      "n_best_lag_plus1": 0,
+      "n_best_lag_minus1": 0
+    },
+    "gbm_s1": {
+      "n_shifted": 3,
+      "n_best_lag_plus1": 3,
+      "n_best_lag_minus1": 0
+    },
+    "lstm_s2_by_fold": {
+      "0": 8,
+      "1": 3,
+      "2": 4,
+      "3": 1,
+      "4": 2
+    },
+    "gbm_s2_by_fold": {
+      "0": 10,
+      "1": 2,
+      "2": 3,
+      "3": 1,
+      "4": 0
+    },
+    "lstm_s2_shifted_basins": [
+      {
+        "basin": "2102",
+        "fold": 2,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": -0.037,
+        "NSE_lstm_s1_mean": 0.75,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": true,
+        "karst_perc": 38.69,
+        "inwater_perc": 3.81,
+        "area": 269.3,
+        "country": "CH",
+        "water_body_name": "Sarner_Aa"
+      },
+      {
+        "basin": "2104",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 2,
+        "best_lag_gbm_s1": 1,
+        "NSE_lstm_s2": 0.494,
+        "NSE_lstm_s1_mean": 0.921,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": true,
+        "karst_perc": 26.78,
+        "inwater_perc": 2.74,
+        "area": 1061.5,
+        "country": "CH",
+        "water_body_name": "Linth"
+      },
+      {
+        "basin": "2125",
+        "fold": 4,
+        "best_lag_lstm_s2": -1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 0,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.564,
+        "NSE_lstm_s1_mean": 0.86,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 0.0,
+        "inwater_perc": 17.45,
+        "area": 261.7,
+        "country": "CH",
+        "water_body_name": "Lorze"
+      },
+      {
+        "basin": "2167",
+        "fold": 3,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.567,
+        "NSE_lstm_s1_mean": 0.901,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 25.37,
+        "inwater_perc": 8.16,
+        "area": 609.1,
+        "country": "CH",
+        "water_body_name": "Tresa"
+      },
+      {
+        "basin": "2210",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.754,
+        "NSE_lstm_s1_mean": 0.92,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 77.532,
+        "inwater_perc": 0.74,
+        "area": 1275.4,
+        "country": "CH",
+        "water_body_name": "Doubs"
+      },
+      {
+        "basin": "2239",
+        "fold": 1,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 2,
+        "best_lag_lstm_s1_seed1": 1,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": -85.087,
+        "NSE_lstm_s1_mean": -0.409,
+        "P_response_lag_obs": 4,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 35.51,
+        "inwater_perc": 1.44,
+        "area": 294.6,
+        "country": "CH",
+        "water_body_name": "Sp\u00f6l"
+      },
+      {
+        "basin": "2270",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.706,
+        "NSE_lstm_s1_mean": 0.892,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 78.71,
+        "inwater_perc": 0.94,
+        "area": 998.5,
+        "country": "CH",
+        "water_body_name": "Doubs"
+      },
+      {
+        "basin": "2370",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.744,
+        "NSE_lstm_s1_mean": 0.909,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 78.92,
+        "inwater_perc": 0.9,
+        "area": 1046.7,
+        "country": "CH",
+        "water_body_name": "Doubs"
+      },
+      {
+        "basin": "2378",
+        "fold": 1,
+        "best_lag_lstm_s2": -1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 0,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.659,
+        "NSE_lstm_s1_mean": 0.882,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": true,
+        "karst_perc": 72.03,
+        "inwater_perc": 3.07,
+        "area": 342.8,
+        "country": "CH",
+        "water_body_name": "Orbe"
+      },
+      {
+        "basin": "2416",
+        "fold": 2,
+        "best_lag_lstm_s2": 2,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 2,
+        "best_lag_gbm_s1": 1,
+        "NSE_lstm_s2": -0.797,
+        "NSE_lstm_s1_mean": 0.928,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 0.0,
+        "inwater_perc": 7.15,
+        "area": 73.3,
+        "country": "CH",
+        "water_body_name": "Aabach"
+      },
+      {
+        "basin": "2417",
+        "fold": 1,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 2,
+        "best_lag_gbm_s1": 1,
+        "NSE_lstm_s2": 0.2,
+        "NSE_lstm_s1_mean": 0.905,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 0.0,
+        "inwater_perc": 19.02,
+        "area": 75.6,
+        "country": "CH",
+        "water_body_name": "Suhre"
+      },
+      {
+        "basin": "2457",
+        "fold": 2,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.865,
+        "NSE_lstm_s1_mean": 0.94,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": true,
+        "karst_perc": 22.89,
+        "inwater_perc": 3.14,
+        "area": 1137.6,
+        "country": "CH",
+        "water_body_name": "Aare"
+      },
+      {
+        "basin": "2477",
+        "fold": 4,
+        "best_lag_lstm_s2": -1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 0,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.45,
+        "NSE_lstm_s1_mean": 0.847,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 0.0,
+        "inwater_perc": 7.24,
+        "area": 100.2,
+        "country": "CH",
+        "water_body_name": "Lorze"
+      },
+      {
+        "basin": "2635",
+        "fold": 2,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 0,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": -0.529,
+        "NSE_lstm_s1_mean": 0.797,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": false,
+        "karst_perc": 0.0,
+        "inwater_perc": 0.0,
+        "area": 8.9,
+        "country": "CH",
+        "water_body_name": "Grossbach"
+      },
+      {
+        "basin": "5012",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.68,
+        "NSE_lstm_s1_mean": 0.856,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": true,
+        "regulated": false,
+        "karst_perc": 91.48,
+        "inwater_perc": 2.15,
+        "area": 250.3,
+        "country": "FR",
+        "water_body_name": "Le_Doubs"
+      },
+      {
+        "basin": "5014",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.768,
+        "NSE_lstm_s1_mean": 0.883,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": false,
+        "karst_perc": 91.87,
+        "inwater_perc": 1.55,
+        "area": 347.4,
+        "country": "FR",
+        "water_body_name": "Le_Doubs"
+      },
+      {
+        "basin": "5030",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.674,
+        "NSE_lstm_s1_mean": 0.802,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 79.05,
+        "inwater_perc": 0.96,
+        "area": 918.8,
+        "country": "FR",
+        "water_body_name": "Le_Doubs"
+      },
+      {
+        "basin": "5032",
+        "fold": 0,
+        "best_lag_lstm_s2": 1,
+        "best_lag_lstm_s1_mean": 0,
+        "best_lag_lstm_s1_seed1": 0,
+        "best_lag_gbm_s2": 1,
+        "best_lag_gbm_s1": 0,
+        "NSE_lstm_s2": 0.733,
+        "NSE_lstm_s1_mean": 0.888,
+        "P_response_lag_obs": 0,
+        "P_response_lag_lstm_s2": 0,
+        "lake": false,
+        "regulated": true,
+        "karst_perc": 79.42,
+        "inwater_perc": 0.82,
+        "area": 1148.4,
+        "country": "FR",
+        "water_body_name": "Le_Doubs"
+      }
+    ],
+    "shifted_lstm_s2_that_are_shifted_in_setting1_seed_mean": 1,
+    "share_lake_flag": {
+      "shifted": 0.5555555555555556,
+      "others": 0.03125
+    },
+    "median_karst_perc": {
+      "shifted": 37.099999999999994,
+      "others": 8.5845
+    },
+    "median_inwater_perc": {
+      "shifted": 2.4450000000000003,
+      "others": 0.0
+    },
+    "median_area": {
+      "shifted": 345.1,
+      "others": 168.14999999999998
+    },
+    "share_outside_CH": {
+      "shifted": 0.2222222222222222,
+      "others": 0.1375
+    },
+    "P_response_lag": {
+      "shifted_obs_minus_sim": {
+        "0": 17,
+        "4": 1
+      },
+      "others_obs_minus_sim": {
+        "0": 160
+      }
+    },
+    "corr_gain_lag+1_minus_lag0_lstm_s2_shifted_median": 0.013653309179524675,
+    "corr_gain_lag+1_minus_lag0_lstm_s1_mean_same_basins_median": -0.03585533420640313,
+    "alignment": {
+      "obs_max_abs_diff_same_day": 8.483886716703637e-06,
+      "obs_min_over_basins_of_max_abs_diff_raw_day_before": 0.6150000457763674,
+      "obs_min_over_basins_of_max_abs_diff_raw_day_after": 0.614999963760376,
+      "precip_max_abs_diff_same_day": 7.32421875682121e-06,
+      "precip_min_over_basins_of_max_abs_diff_raw_day_before": 58.57999633789062,
+      "other_forcing_max_abs_diff_same_day": 3.662109378410605e-06
+    }
+  },
+  "c_setting3_skill": {
+    "median_NSE": {
+      "finetune_1y": 0.7909,
+      "finetune_2y": 0.8117,
+      "finetune_5y": 0.8525,
+      "scratch_1y": 0.6613,
+      "scratch_2y": 0.7309,
+      "scratch_5y": 0.7893
+    },
+    "n_runs_above_0p90": 5,
+    "runs_above_0p90": [
+      {
+        "run": "finetune_2202_1y_2211_031037",
+        "NSE": 0.9077,
+        "NSE_lstm_s1_mean_same_basin": 0.9232,
+        "NSE_lstm_s1_seed1_same_basin": 0.9152,
+        "NSE_lstm_s2_same_basin": 0.7307
+      },
+      {
+        "run": "finetune_2202_2y_2211_031108",
+        "NSE": 0.9141,
+        "NSE_lstm_s1_mean_same_basin": 0.9232,
+        "NSE_lstm_s1_seed1_same_basin": 0.9152,
+        "NSE_lstm_s2_same_basin": 0.7307
+      },
+      {
+        "run": "finetune_2202_5y_2211_031139",
+        "NSE": 0.9316,
+        "NSE_lstm_s1_mean_same_basin": 0.9232,
+        "NSE_lstm_s1_seed1_same_basin": 0.9152,
+        "NSE_lstm_s2_same_basin": 0.7307
+      },
+      {
+        "run": "finetune_2262_2y_2111_131025",
+        "NSE": 0.9168,
+        "NSE_lstm_s1_mean_same_basin": 0.9418,
+        "NSE_lstm_s1_seed1_same_basin": 0.9321,
+        "NSE_lstm_s2_same_basin": 0.6219
+      },
+      {
+        "run": "finetune_2262_5y_2111_131058",
+        "NSE": 0.9263,
+        "NSE_lstm_s1_mean_same_basin": 0.9418,
+        "NSE_lstm_s1_seed1_same_basin": 0.9321,
+        "NSE_lstm_s2_same_basin": 0.6219
+      }
+    ],
+    "n_finetune_runs_above_setting1_seed1": 13,
+    "max_finetune_minus_setting1_seed1": 0.05917462929136652,
+    "verifier_hard_failures": [
+      {
+        "unit": "finetune_2202_1y",
+        "check": "alarm_median_nse_above_0.90[finetune_2202_1y_2211_031037]"
+      },
+      {
+        "unit": "finetune_2202_2y",
+        "check": "alarm_median_nse_above_0.90[finetune_2202_2y_2211_031108]"
+      },
+      {
+        "unit": "finetune_2202_5y",
+        "check": "alarm_median_nse_above_0.90[finetune_2202_5y_2211_031139]"
+      },
+      {
+        "unit": "finetune_2262_2y",
+        "check": "alarm_median_nse_above_0.90[finetune_2262_2y_2111_131025]"
+      },
+      {
+        "unit": "finetune_2262_5y",
+        "check": "alarm_median_nse_above_0.90[finetune_2262_5y_2111_131058]"
+      }
+    ],
+    "verifier_failures_are_only_the_not_applicable_median_alarm": true
+  }
+}

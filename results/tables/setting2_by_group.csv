@@ -1,0 +1,9 @@
+Group,Basins,Median NSE gauged,Median NSE ungauged,Median change,Basins losing > 0.2,"Median NSE ungauged, boosting"
+All setting-2 basins,178,0.857,0.580,-0.255,99,0.658
+Near-natural,75,0.855,0.627,-0.181,34,0.700
+Regulated,54,0.871,0.624,-0.215,29,0.606
+Outside Switzerland,26,0.846,0.436,-0.441,18,0.513
+Glacier cover > 5 %,25,0.893,0.664,-0.215,14,0.768
+Mean elevation < 700 m,22,0.879,0.510,-0.279,13,0.505
+Mean elevation > 1800 m,53,0.861,0.492,-0.327,35,0.612
+Area < 50 km2,40,0.793,0.483,-0.292,27,0.628

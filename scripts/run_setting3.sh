@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Train and evaluate the setting-3 runs of one kind (scratch or finetune), one after another.
 # A run whose directory already holds test results is skipped.
-NH=/c/Users/Koza/anaconda3/envs/camelsch/Scripts/nh-run.exe
+NH=${NH:-nh-run}
 cd "$(dirname "$0")/.."
 kind=$1
 for cfg in configs/setting3/${kind}_*.yml; do

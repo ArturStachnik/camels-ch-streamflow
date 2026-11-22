@@ -1,0 +1,9 @@
+config,differing_keys_vs_fold0,seed,package_version,commit_hash,device
+0,[],200,1.13.0,,cuda:0
+0_resumed,[],200,1.13.0,,cuda:0
+1,[],201,1.13.0,,cuda:0
+1_resumed,[],201,1.13.0,,cuda:0
+2,[],202,1.13.0,,cuda:0
+2_resumed,[],202,1.13.0,,cuda:0
+3,[],203,1.13.0,,cuda:0
+4,[],204,1.13.0,,cuda:0

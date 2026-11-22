@@ -1,0 +1,6 @@
+Training data from the target basin,"Median NSE, fine-tuned","Median NSE, from scratch",Fine-tuned better than scratch,Fine-tuned better than no fine-tuning
+none (ungauged model of setting 2),0.615,n/a,n/a,n/a
+1 year,0.791,0.661,18 of 20,18 of 20
+2 years,0.812,0.731,18 of 20,17 of 20
+5 years,0.852,0.789,19 of 20,20 of 20
+"24 years, with all other basins (setting 1)",0.870,n/a,n/a,n/a

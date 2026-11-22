@@ -1,0 +1,7 @@
+run,n_features,n_static,features_discharge_or_signature,booster_feature_names_match,n_trees,n_train_rows_config,n_train_rows_recomputed_training_period,n_rows_if_training_plus_validation,test_basins_in_train,max_abs_diff_repredicted_vs_saved
+gbm_setting1,83,45,[],True,1500,1647284,1647284,2021130,,0.0
+gbm_setting2_fold0,83,45,[],True,1500,1151672,1151672,1410766,0.0,0.0
+gbm_setting2_fold1,83,45,[],True,1500,1127030,1127030,1385946,0.0,0.0
+gbm_setting2_fold2,83,45,[],True,1500,1139298,1139298,1398196,0.0,0.0
+gbm_setting2_fold3,83,45,[],True,1500,1135761,1135761,1396395,0.0,0.0
+gbm_setting2_fold4,83,45,[],True,1500,1129319,1129319,1389953,0.0,0.0

@@ -1,0 +1,31 @@
+{
+  "n_units": 120,
+  "n_checks": 2640,
+  "n_hard_failures": 5,
+  "n_alarms": 5,
+  "n_not_applicable_alarms_triggered": 0,
+  "n_findings": 107,
+  "failed": [
+    {
+      "unit": "finetune_2202_1y",
+      "check": "alarm_median_nse_above_0.90[finetune_2202_1y_2211_031037]"
+    },
+    {
+      "unit": "finetune_2202_2y",
+      "check": "alarm_median_nse_above_0.90[finetune_2202_2y_2211_031108]"
+    },
+    {
+      "unit": "finetune_2202_5y",
+      "check": "alarm_median_nse_above_0.90[finetune_2202_5y_2211_031139]"
+    },
+    {
+      "unit": "finetune_2262_2y",
+      "check": "alarm_median_nse_above_0.90[finetune_2262_2y_2111_131025]"
+    },
+    {
+      "unit": "finetune_2262_5y",
+      "check": "alarm_median_nse_above_0.90[finetune_2262_5y_2111_131058]"
+    }
+  ],
+  "overall": "fail"
+}

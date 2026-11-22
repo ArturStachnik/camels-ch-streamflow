@@ -1,0 +1,40 @@
+Period 'test': 2010-10-01 to 2020-09-30 (from splits/periods.yml)
+[PASS   ] split_sha256: files listed in SHA256SUMS match their SHA-256
+Loaded setting2_fold3_2111_191115: 35 basins from runs/setting2_fold3_2111_191115/test/model_epoch030/test_results.p
+[PASS   ] structure[setting2_fold3_2111_191115]: results hold one daily frequency with a single time step at midnight dates
+[PASS   ] config_period[setting2_fold3_2111_191115]: test dates in the run's config.yml equal periods.yml
+[PASS   ] basin_set[setting2_fold3_2111_191115]: basins in results equal fold3_test.txt exactly
+[PASS   ] dates_inside_period: every date lies inside 2010-10-01..2020-09-30
+[PASS   ] no_duplicated_dates: no basin has duplicated dates
+[PASS   ] period_fully_covered: every basin has one row for every day of the period
+[PASS   ] no_nan_in_sim: simulations contain no NaN or infinite value
+[FINDING] sim_non_negative: simulations are non-negative
+          {"n_basin_member_pairs": 3, "total": 1742, "examples": [{"member": "setting2_fold3_2111_191115", "basin": "2321", "n_sim_negative": 92}, {"member": "setting2_fold3_2111_191115", "basin": "2461", "n_sim_negative": 1638}, {"member": "setting2_fold3_2111_191115", "basin": "2617", "n_sim_negative": 12}], "most_negative_sim": -0.5779683589935303}
+NOTE: --sim-clip zero: negative simulated values were set to zero before computing metrics
+Raw observed discharge: column 'discharge_spec(mm/d)' in data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based
+[PASS   ] obs_match_raw: observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)
+[PASS   ] obs_not_dropped: no observation present in the raw file is missing from the results
+[FINDING] flv_low_segment[setting2_fold3_2111_191115]: no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment
+          {"n_basins_flagged": 4, "n_with_obs_zero": 1, "n_with_sim_zero": 3, "basins": ["2283", "2321", "2461", "2617"], "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"}
+[PASS   ] library_vs_own[setting2_fold3_2111_191115][NSE]: own NSE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[setting2_fold3_2111_191115][KGE]: own KGE agrees with the library's test_metrics.csv within 0.001
+[PASS   ] library_vs_own[setting2_fold3_2111_191115][FHV]: own FHV agrees with the library's test_metrics.csv within 0.1
+[PASS   ] library_vs_own[setting2_fold3_2111_191115][FLV]: own FLV agrees with the library's test_metrics.csv within 0.1
+NOTE: PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor.
+[PASS   ] benchmarks_computed: climatology and PREVAH benchmarks could be computed for every basin
+[PASS   ] flags_cover_basins: every basin in the results has a near_natural flag
+[PASS   ] alarm_nse_above_0.98[setting2_fold3_2111_191115]: no basin has NSE > 0.98
+[PASS   ] alarm_median_nse_above_0.90[setting2_fold3_2111_191115]: median NSE is not above 0.90
+[PASS   ] alarm_sim_identical_to_obs[setting2_fold3_2111_191115]: no simulation is identical to the observations
+[PASS   ] alarm_one_day_shift[setting2_fold3_2111_191115]: sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins
+
+                    member subset metric  n_basins  n_nan   median      mean        p05       p25      p75      p95        min      max  n_below_zero
+setting2_fold3_2111_191115    all    NSE        35      0 0.537108 -3.183324  -9.695852  0.152155 0.731171 0.820944 -88.471466 0.827576           8.0
+setting2_fold3_2111_191115    all    KGE        35      0 0.456915 -0.165568  -3.045535 -0.074272 0.667445 0.838240  -7.306027 0.898861           9.0
+ benchmark_climatology_doy    all    NSE        35      0 0.043173  0.117605  -0.091183 -0.012559 0.163791 0.606843  -0.227736 0.659531          11.0
+ benchmark_climatology_doy    all    KGE        35      0 0.059566  0.150108  -0.143751 -0.085491 0.284220 0.732395  -0.192718 0.821196          14.0
+          benchmark_prevah    all    NSE        35      0 0.458713 -3.896446 -20.077853 -0.041883 0.657774 0.773969 -81.137245 0.836516           9.0
+          benchmark_prevah    all    KGE        35      0 0.443386 -0.227654  -3.539320 -0.088996 0.592230 0.814238  -6.894406 0.880116          10.0
+
+All hard checks passed (2 soft finding(s)).
+Outputs written to results/verification_setting2/fold3

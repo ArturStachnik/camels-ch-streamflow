@@ -1,0 +1,86 @@
+[
+  {
+    "id": "1_setting2_scaler",
+    "status": "pass",
+    "key_number": 1.0425929228196486e-07,
+    "note": "Saved scalers equal the statistics of each fold's train basins in the training period (max rel. diff 1.0e-07); any other basin set or period differs by at least 0.040."
+  },
+  {
+    "id": "2_nested_basins",
+    "status": "pass",
+    "key_number": 0,
+    "note": "Recomputed from polygons, gauge points and raw H1/H2 hierarchy: 203 related pairs, all in containment_pairs.csv, none across train/test; largest cross-fold overlap 1.1e-05 of the smaller polygon."
+  },
+  {
+    "id": "3_finetune_base_models",
+    "status": "pass",
+    "key_number": 60,
+    "note": "Every fine-tune run starts from epoch 30 of the fold where its basin (and every related basin) was a test basin, with the base model's scaler byte-identical."
+  },
+  {
+    "id": "4_setting3_windows",
+    "status": "pass",
+    "key_number": 1463,
+    "note": "Training targets rebuilt with NeuralHydrology are exactly the last N years ending 2005-09-30 in 120/120 runs; the closest training input lies 1463 days before the first test input (incl. 365-day warm-up)."
+  },
+  {
+    "id": "5_gbm",
+    "status": "pass",
+    "key_number": 0.0,
+    "note": "Perturbing forcing after a date changes no feature before it; no discharge feature; training rows equal the training-period count; saved models reproduce the saved test simulations exactly; 1500 trees, no early stopping."
+  },
+  {
+    "id": "6_static_attributes",
+    "status": "pass",
+    "key_number": 0,
+    "note": "No hydrological signature, discharge, lagged or autoregressive input in 131 run configurations; highest |r| of a static with q_mean is 0.52 (p_mean)."
+  },
+  {
+    "id": "7_model_selection",
+    "status": "pass",
+    "key_number": 0,
+    "note": "Each unit has exactly one test evaluation, at its fixed final epoch; validation in setting 2 uses training basins only and selects nothing."
+  },
+  {
+    "id": "8_resume_incident",
+    "status": "pass",
+    "key_number": 0.0001672408923772512,
+    "note": "Folds 0-2 were evaluated with continue_training's epoch-30 file, written before epoch 31 began; CPU re-inference of 15 basins from those weights reproduces the saved simulations to CPU/GPU rounding (max abs diff 0.042 mm/d; NSE differs by at most 1.7e-04 relative, the largest absolute change being in basin 2239 with NSE -85). No file records a hash at save time; the evidence is the log path, the file time (= epoch-30 log line, before epoch 31) and the re-inference. Epochs 31-32 left no weights and nothing from them was evaluated."
+  },
+  {
+    "id": "9_folds_other_gpu",
+    "status": "pass",
+    "key_number": 0,
+    "note": "Configurations of folds 3-4 equal folds 0-2 except fold-specific keys (basin files, seed, names); GPU kernels are not deterministic, so no fold is bit-reproducible."
+  },
+  {
+    "id": "10_skill_with_without_human_influence",
+    "status": "finding",
+    "key_number": 0.5796,
+    "note": "Setting-2 LSTM median NSE 0.580 on 178 basins, 0.627 on 75 near-natural and 0.539 on the rest (gauged setting-1 seed 1 on the same basins 0.859)."
+  },
+  {
+    "id": "a_printed_trial_and_recipes",
+    "status": "finding",
+    "key_number": 120,
+    "note": "All 120/120 setting-3 run configs match the committed recipe, but the script was edited at 2026-11-21 10:11 and first committed in b189c48, after the scratch trial (01:37) and after all scratch runs; git cannot prove the recipe predates the printed NSE, only that no run used a different one."
+  },
+  {
+    "id": "b_one_day_shift_alarms",
+    "status": "finding",
+    "key_number": 18,
+    "note": "18/178 basins peak one day early in setting 2 (best lag +1: 14); only 1 of them (2239, regulated Spoel) is also shifted when gauged with the same inputs and observations; 10 are lake-influenced (3 % of the other basins) and 8 are Doubs karst gauges forming one group in fold 0; observations and forcing equal the raw files on the same day (max diff 8.5e-06) and differ by at least 0.62 mm/d when shifted a day; the shifted basins have low, not high, NSE; read as a timing error of the ungauged model, not leakage or misalignment."
+  },
+  {
+    "id": "c_setting3_nse_above_0p90",
+    "status": "finding",
+    "key_number": 5,
+    "note": "5 single-basin runs exceed NSE 0.90 (2202 1/2/5y, 2262 2/5y); both basins already reach 0.90-0.94 when gauged in setting 1, the runs stay within -0.016 to +0.017 of setting-1 seed 1, test observations equal setting 1, and every training window ends 2005-09-30; plausible, no leakage found. Across all 60 fine-tune runs 13 beat setting-1 seed 1, by at most +0.059 (basin 2299)."
+  },
+  {
+    "id": "d_verify_all_suffix_bug",
+    "status": "finding",
+    "key_number": 5,
+    "note": "verify_all.py exempts 'alarm_median_nse_above_0.90' by exact id, but ids carry a '[run]' suffix, so the exemption never applies; all hard failures of setting 3 are this not-applicable alarm."
+  }
+]

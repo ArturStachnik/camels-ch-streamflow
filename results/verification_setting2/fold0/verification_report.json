@@ -1,0 +1,900 @@
+{
+  "timestamp_utc": "2026-11-22T02:09:24+00:00",
+  "command_line": [
+    "python",
+    "verification/verify_metrics.py",
+    "--run-dirs",
+    "runs/setting2_fold0_2111_013508/continue_training_from_epoch010",
+    "--period",
+    "test",
+    "--epoch",
+    "30",
+    "--basin-file",
+    "splits/setting2/fold0_test.txt",
+    "--sim-clip",
+    "zero",
+    "--out",
+    "results/verification_setting2/fold0"
+  ],
+  "working_directory": ".",
+  "versions": {
+    "python": "3.11.18",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1"
+  },
+  "period": {
+    "name": "test",
+    "start": "2010-10-01T00:00:00",
+    "end": "2020-09-30T00:00:00"
+  },
+  "epoch": 30,
+  "members": [
+    "continue_training_from_epoch010"
+  ],
+  "parameters": {
+    "fhv_fraction": 0.02,
+    "flv_fraction": 0.3,
+    "flv_floor_mm_per_day": 1e-06,
+    "near_zero_mm_per_day": 0.01,
+    "log_nse_eps_mm_per_day": 0.01,
+    "tol_nse_kge": 0.001,
+    "tol_fhv": 0.1,
+    "tol_flv": 0.1,
+    "tol_obs_mm_per_day": 0.0005,
+    "min_days_per_hydro_year": 300,
+    "raw_obs_column": "discharge_spec(mm/d)",
+    "raw_sim_column": "discharge_spec_sim(mm/d)",
+    "allow_basin_mismatch": false,
+    "sim_clip": "zero",
+    "basin_file": "splits/setting2/fold0_test.txt"
+  },
+  "notes": {
+    "prevah": "PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor."
+  },
+  "input_sha256": {
+    "splits/periods.yml": "b750bc3439cc2720ab67f8de81f780ff8b814e90667ab5b213b052b1b8933e3f",
+    "splits/setting2/fold0_test.txt": "274384b145f7836e4fe2cfb03c3d00a38dd2fe5017c0d0f5f594911c857afc82",
+    "results/data_report/basin_flags.csv": "53df7c44989883437b2bfbab96d5d267430bc7ed4c0b3990cffd76370447b5df",
+    "splits/SHA256SUMS": "57aea200c1d62d93f21c245e73c998c08a0f17d25ff0f0064d2091c0d54cd09d",
+    "runs/setting2_fold0_2111_013508/continue_training_from_epoch010/test/model_epoch030/test_results.p": "142997ad835127e3fb8a3e5717c89e69b92f2bf19c81896b3cbbe6ddd8d6c0f0",
+    "runs/setting2_fold0_2111_013508/continue_training_from_epoch010/test/model_epoch030/test_metrics.csv": "2a3873f91cfa611900956f0445f45e6df088ce854b0e6e021472d3a359ff1135",
+    "runs/setting2_fold0_2111_013508/continue_training_from_epoch010/config.yml": "0b28bfb5d3ba27fefbf6e1011e69dd4d9d3d3b6094df08706315932570135b46",
+    "raw_files_combined (sha256 over sorted 'hash  path' lines)": "45f44820547cf5f3b7a1e4c911f170fde8be49b6a5b2ad6d9405a59a17e120bf"
+  },
+  "raw_files_sha256": {
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2033.csv": "b6d6a2df24eabb9646724b047c90c50dea840aa0bd5ef41361758dfa1a7aa5fd",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2104.csv": "2044ffe8b00647b843b4741a6ba6401ee7c9078482f8c105ff47f4d02e36bdd4",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2139.csv": "1f486087e4eb123899f3cab59103031888f01eb9499c6520c2f844cc77fb7d6c",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2187.csv": "ab43494fad74f2e424307d81cbba80b99bedf49642c6b27dc196c197206c7bb0",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2210.csv": "ad8fbcd2fa4d4bbb0cc15f0bd0836cc6de536f00d00e578167f64a94e6fc2784",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2244.csv": "df0432e93aeabf0c58f8981cfde274b85bbd5d4a0db0ebcd7a6f7961cbc27142",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2247.csv": "49cd79854573f29b82e3b827c0e8cf7396c0496a744190b7d67a42f181e9b200",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2269.csv": "0b2428cae7fdcf5de6d95933b0fed61085eaf179ffa580d7a6f4f9800e746395",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2270.csv": "b44ec7a59f2a52381ff80977299d86bce837d6f6eb75ef7f338c8d00df9593e1",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2290.csv": "d2d8c92cc09434ea326ad815f829472558e1e64c41f1663d2983142c93111d79",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2307.csv": "ae60949329e8f89cd079a41101b6ac7ec7bf5068f8a6383256f2e574b9d19409",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2308.csv": "25a928345ca7297c03504f75e67b2b1d6ec85670f4ffeb44db3f7966284f9107",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2349.csv": "de5816203aae6b8eadbd46e46b3f60076e424576725394349396f6af8b552335",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2352.csv": "ebacfb17612723a2f9821ad961b9f6b873211646195ebf66a43730af21f80441",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2370.csv": "3681caf87b50af77c715a43602efd5313b635d9b244447656e64ae815d0104d4",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2372.csv": "c514a30588289418683b5858aca643f0298545392e63d6584253a7e5b6be2e8f",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2415.csv": "a4cbbca7c928a41c0d9c044d7999e7aa5bc59ef3a37dc3185b12db73e8749e1d",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2426.csv": "98b7ce4ab6fb33a8e31b71edc7ba1b58466f8d0bc99c684e7c5328cd0c729b97",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2430.csv": "d5284b689a9e11db2085de01c30acb08a2fa8725767a3f4281624f4e43be7303",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_2480.csv": "f76544c6a9b2448957ce2ed1a09b3d8cade4b000385deea4ddfe03e5d7d7368c",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3002.csv": "7affa93128857eaa86ca07d143df9870352ebf64831e9ff8c3123a689f4d0602",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3003.csv": "a8c1286e3e3e6d3d2361204c02d9079e3df647061330a295d0e6bcd3efb4575b",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3004.csv": "ccb4c3f3b077eef1409aab4926e01cb07874de6dcf3603d3c49422ab2fc36478",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3005.csv": "45ec9fd562e9409c57e06a10b176cda19c291289cd5763bb85ca9eb446c1562a",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3009.csv": "7be799af215d40c7678569deb62873cc216c0b39bb0a9f1002fc2e107a30480c",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3018.csv": "db62a5ce7e8623d93a850ae44027d9a112960c138007cd3995e5eab5a98eabed",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3019.csv": "bb8481f7b930b7f8a3bd7020152ee25414c39edc1a45279936c659ab96e45578",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_3032.csv": "80c3594161d2b0f5d9771a13b195274e3a6ca4c12b8e7259c424d2533591942c",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5009.csv": "154749b2b60997a5e25899472b01b91d1e17a2106605bd7e8b8950a3db5fce0e",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5010.csv": "5ecf94ad00e83789a76a8b9eec7632b1bb9663fd497763daf2d504ca094f59cf",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5012.csv": "c8904740b6f27a31c6f1210fe4adc00175f66c9c2af0e1f22932a96ca4357103",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5013.csv": "9e5e352597dbb0e38d354b5eed53c887efeeed9caaabc7cb221d7c118a4f90c8",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5014.csv": "0474522c4e7e7602536c66860c4551f98abc59626ddf7945dc6a316e53bf6cff",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5030.csv": "e1156d84e860bfc2a381cc0c3429e1336bbfc10f5a43cbbd44a1afe0edaac128",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_5032.csv": "cd2b4639efb083959f2afff6f13a01090c9680267e6bb176d80caeba1559d3f4",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/observation_based/CAMELS_CH_obs_based_6007.csv": "8ebf45de0a867fd7104aa9dd9f96262142cdc4656d8472e74de39733e5be00c9",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2033.csv": "ede6d995fb891a4cb0af9ebe2e86252098d78c397aae17d14d43768fcd36d0f7",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2104.csv": "17ed8c4c00e09ef84467836e062298812d0cb40168c4c38cdc9ea9de1e1a861f",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2139.csv": "c527a56efbcd09556c33943508b447bde71e6feaea827d4e4e6b8fd6c39d7670",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2187.csv": "3b233235b32d39243698389acbffe3e8a860f172926e45b2e9338945b6aec3ee",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2210.csv": "41a36401eb477adb00854696947832bc3d398874b2faf58215151775618c8a9a",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2244.csv": "65ed072c6050c56bf33bc31d3a38d8cca886c8d715341c0adddc3d6d352a5964",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2247.csv": "fd38e98cf2dc20a9697498a9ee8bd505e5651a2aeb5689ade15b4a9ff991b56b",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2269.csv": "253659ba0c16eae59de3831b3ba415585f918590e32c4930863158afc84a8c57",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2270.csv": "237e88f8a8eb71dbbd56761c843306b84400efc72957d79393c75489f8ea2f26",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2290.csv": "28b289c4cb5e945dc21be9d485327216f877bd7a06012be3421fa02fc7c41754",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2307.csv": "0b6084446252fa4a1c58616b7a164f1e14e594f53f8dbc9b7f8aa429ac3cfb43",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2308.csv": "61fee55c020ca1c5e3800a51f87a54dda80a1524ec7a342580ad5a0289004fcb",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2349.csv": "f7a7b9f96d875d26f4a224834a4d2b0ae5525be2da89fc9e07aca936f4fc1df9",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2352.csv": "9e6d140c7fcf5328db2eb51eff2fb2d40103bcba3ed4b2d700ac2f41c676efe4",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2370.csv": "bf54d34cdee64fb0f678b76fbab31951afad24e20ff83b40eac92d8bb3232b30",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2372.csv": "6061f03dffe3d078b393b2bbfe9014014ae264e79d3d0e1e037f780b4b550dcd",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2415.csv": "7136063b6d251d967d63254c829682ffacedfe42af86f8fe8f43a176bb728aa8",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2426.csv": "b5dfb7016cbac30e810a76594b72a53e264e12f362627acd7161ead602ce665f",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2430.csv": "028c3a0d87501cbf111ed0b3d5683114c1fb68418827a734d1f6d05a2adf10ff",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_2480.csv": "1d49caaa4133cc57c02d35618c0489e5dc581f650f4eb889713b7c920dde7571",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3002.csv": "98114042e8a5460717ad565bead0d86b89ceb326187c9e74f4ac08de620a2d94",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3003.csv": "d7463b18d8dd7c2f9a9c43dd942e727414e91c14d99f63dc1c8dd663485a459f",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3004.csv": "83006c6ce38eb1a9ef916d03be6ba2f4c580cdf5e13c2d496c1c54845bd3ebc3",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3005.csv": "7d146f295004e34553e93accc1a620db5bf5ddd97e787820352b6280ce8c50e8",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3009.csv": "417e93b965788dc4b127911442a499fc1b469e1bd1c585620efa1c0aa1c379a2",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3018.csv": "1f470277595b1af57caecedc17ca0f2e45e0e5a9147c73c55c56a70d30cee5c6",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3019.csv": "7839d66eef30ea46dd95ed3d93a01799204dd7cf5fda36b09241e029d247f922",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_3032.csv": "80038a945d5350e05a9b3a816a996d3cd926bc2843e90a7a8917dd516bf3554a",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5009.csv": "3375a7c1ebaf30829fc2d4339447a40557cb426b338946dc5143ee8c0d07c7cd",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5010.csv": "0b508579ba0ba742f9bb31aef71d20028cf09d774068d70d81e7b665742ae490",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5012.csv": "c3bd9591bd359c204ef959fabc5d891b252be256241e66488aa46d627192933d",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5013.csv": "41b365f855c13897c30eaaf482a064b45514dfe2937df3b6fcd96f1269297359",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5014.csv": "bde87c034b8f8734dce86656ba0810300beec58535de0b8596ddce709716caa1",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5030.csv": "1169aec43780e073943a993dba399c3d588f5f49668f4320c3a05c273205a2b1",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_5032.csv": "bda6d511676f49f2618fd6f03775d3f0aafc6421f08e8be3914d0aa2a5ea83e1",
+    "data/raw/camels_ch_v0.9/camels_ch/timeseries/simulation_based/CAMELS_CH_sim_based_6007.csv": "067478917f5f96960cd461411f5719dc6e3fa8a1788a7a38b1578f19d110a86f"
+  },
+  "headline_summary": [
+    {
+      "member": "continue_training_from_epoch010",
+      "subset": "all",
+      "metric": "NSE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.4584022364099827,
+      "mean": -0.372704250253471,
+      "p05": -2.8152899428661677,
+      "p25": -0.30697850224065387,
+      "p75": 0.7124285465102695,
+      "p95": 0.8066169568677538,
+      "min": -15.783146188786539,
+      "max": 0.8764838173418664,
+      "n_below_zero": 12.0
+    },
+    {
+      "member": "continue_training_from_epoch010",
+      "subset": "all",
+      "metric": "KGE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.5436074494474307,
+      "mean": 0.3610075777895727,
+      "p05": -0.38721572319773995,
+      "p25": 0.23078841509960088,
+      "p75": 0.7357218198606498,
+      "p95": 0.856691412686686,
+      "min": -2.8941832188631227,
+      "max": 0.9135168688105058,
+      "n_below_zero": 5.0
+    },
+    {
+      "member": "benchmark_climatology_doy",
+      "subset": "all",
+      "metric": "NSE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.07959066870197379,
+      "mean": 0.16630896791200997,
+      "p05": -0.050281764118020544,
+      "p25": 0.01580356370047073,
+      "p75": 0.33523580500659755,
+      "p95": 0.6119790208679723,
+      "min": -0.29898084023713345,
+      "max": 0.7546937300291447,
+      "n_below_zero": 8.0
+    },
+    {
+      "member": "benchmark_climatology_doy",
+      "subset": "all",
+      "metric": "KGE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.09520558901613374,
+      "mean": 0.21717219789779543,
+      "p05": -0.08950364947147382,
+      "p25": 0.0015325306074511214,
+      "p75": 0.4984402754992593,
+      "p95": 0.7291680124206066,
+      "min": -0.23390565148139886,
+      "max": 0.8623136043194772,
+      "n_below_zero": 9.0
+    },
+    {
+      "member": "benchmark_prevah",
+      "subset": "all",
+      "metric": "NSE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.4924008479279798,
+      "mean": -0.2405940566128798,
+      "p05": -2.518511397946516,
+      "p25": 0.2117875209536389,
+      "p75": 0.6468970724961896,
+      "p95": 0.7753819697814444,
+      "min": -14.043878344813141,
+      "max": 0.9190700748329144,
+      "n_below_zero": 7.0
+    },
+    {
+      "member": "benchmark_prevah",
+      "subset": "all",
+      "metric": "KGE",
+      "n_basins": 36,
+      "n_nan": 0,
+      "median": 0.6501926937373372,
+      "mean": 0.4391771274572875,
+      "p05": -0.2169594640647246,
+      "p25": 0.38578084204797447,
+      "p75": 0.71208431218741,
+      "p95": 0.8329041475439419,
+      "min": -2.5933382920472416,
+      "max": 0.9098812319811672,
+      "n_below_zero": 4.0
+    }
+  ],
+  "checks": [
+    {
+      "id": "split_sha256",
+      "description": "files listed in SHA256SUMS match their SHA-256",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "files": [
+          {
+            "file": "splits/basins_all.txt",
+            "expected": "9cdb49651ac5d421077c68254f856fdead1a58d3633e1ad09d78c218307b048d",
+            "actual": "9cdb49651ac5d421077c68254f856fdead1a58d3633e1ad09d78c218307b048d",
+            "match": true
+          },
+          {
+            "file": "splits/periods.yml",
+            "expected": "b750bc3439cc2720ab67f8de81f780ff8b814e90667ab5b213b052b1b8933e3f",
+            "actual": "b750bc3439cc2720ab67f8de81f780ff8b814e90667ab5b213b052b1b8933e3f",
+            "match": true
+          },
+          {
+            "file": "data/processed/attributes/attributes.csv",
+            "expected": "456af64febfdb6b2bad7292f1a5d5f8052d83307e29594d4d2bbbe657e750464",
+            "actual": "456af64febfdb6b2bad7292f1a5d5f8052d83307e29594d4d2bbbe657e750464",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/containment_pairs.csv",
+            "expected": "ba66a335d16ea7452828a825aef0104c25ab367f0b2186818ac29717e75333bd",
+            "actual": "ba66a335d16ea7452828a825aef0104c25ab367f0b2186818ac29717e75333bd",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/groups.csv",
+            "expected": "ff9727bbe3769ee299df7541896000cbb3f5a34e3f1e5daa48e8f2d4f811cb32",
+            "actual": "ff9727bbe3769ee299df7541896000cbb3f5a34e3f1e5daa48e8f2d4f811cb32",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/excluded_large_basins.txt",
+            "expected": "8a86c6b3e5297723c823a0a65f752fe7a262ce962934522da1962673e639a1c0",
+            "actual": "8a86c6b3e5297723c823a0a65f752fe7a262ce962934522da1962673e639a1c0",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/basins_setting2.txt",
+            "expected": "732446c0af569838818001d6b0ed531294674d801c1d9ecb84afbf5ff926c6e9",
+            "actual": "732446c0af569838818001d6b0ed531294674d801c1d9ecb84afbf5ff926c6e9",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold0_test.txt",
+            "expected": "274384b145f7836e4fe2cfb03c3d00a38dd2fe5017c0d0f5f594911c857afc82",
+            "actual": "274384b145f7836e4fe2cfb03c3d00a38dd2fe5017c0d0f5f594911c857afc82",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold0_train.txt",
+            "expected": "d00d94a33e19fd75ff4fa8d514eaaa55d4d55beafd60e1b33d96fd1dc087c070",
+            "actual": "d00d94a33e19fd75ff4fa8d514eaaa55d4d55beafd60e1b33d96fd1dc087c070",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold1_test.txt",
+            "expected": "4d89f1f5b4b0048be32f9264011d4827d4e098a2adaa5fdcf7e831d900b9a7b9",
+            "actual": "4d89f1f5b4b0048be32f9264011d4827d4e098a2adaa5fdcf7e831d900b9a7b9",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold1_train.txt",
+            "expected": "027bb31be232642a38c7f6f5a1d8e5b764b3e82406e514916ac1d1f95136b213",
+            "actual": "027bb31be232642a38c7f6f5a1d8e5b764b3e82406e514916ac1d1f95136b213",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold2_test.txt",
+            "expected": "87e03c30236717888feb719dfbe8d79dc62909df96daac6c62f828df9603e2fb",
+            "actual": "87e03c30236717888feb719dfbe8d79dc62909df96daac6c62f828df9603e2fb",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold2_train.txt",
+            "expected": "b2a4772fc9f3d89a6e760127caf9a86030da9cf599c8f9cdb4e517c059ebec29",
+            "actual": "b2a4772fc9f3d89a6e760127caf9a86030da9cf599c8f9cdb4e517c059ebec29",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold3_test.txt",
+            "expected": "68d57bc0ca89a3e3ae8f35da0f5ef6bd62452abbc3a42a2fa0ba89dee514586d",
+            "actual": "68d57bc0ca89a3e3ae8f35da0f5ef6bd62452abbc3a42a2fa0ba89dee514586d",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold3_train.txt",
+            "expected": "4018e1d600b5fc29c3535cdd06578b0c2ecf791dad737dfb693315242a994388",
+            "actual": "4018e1d600b5fc29c3535cdd06578b0c2ecf791dad737dfb693315242a994388",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold4_test.txt",
+            "expected": "c9b2627c18699105341257175748f1e093dca6d812d34ff1e992af3f382416c4",
+            "actual": "c9b2627c18699105341257175748f1e093dca6d812d34ff1e992af3f382416c4",
+            "match": true
+          },
+          {
+            "file": "splits/setting2/fold4_train.txt",
+            "expected": "543fd8aa35f38fcca1e3ae45916e99ab71054d5467ac36ebaab638da3be92b7d",
+            "actual": "543fd8aa35f38fcca1e3ae45916e99ab71054d5467ac36ebaab638da3be92b7d",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/sample.csv",
+            "expected": "3a0e3ab227d33890a0597c172d41e1ccafe1939015099e8e88afe4212d92f593",
+            "actual": "3a0e3ab227d33890a0597c172d41e1ccafe1939015099e8e88afe4212d92f593",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2126.txt",
+            "expected": "ea927514fdf3df9b2f6d266ddfc89a836d3ca52a1fbb24629bec7f6f43d9de0b",
+            "actual": "ea927514fdf3df9b2f6d266ddfc89a836d3ca52a1fbb24629bec7f6f43d9de0b",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2202.txt",
+            "expected": "55d0293ba683c43874c944db1d8dc8455e2e69923aa18a93ee2ec0e0e217a1a4",
+            "actual": "55d0293ba683c43874c944db1d8dc8455e2e69923aa18a93ee2ec0e0e217a1a4",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2312.txt",
+            "expected": "cd0d229cada6c6cf61955068411872421495e35d410f879fbeecd2822cbacce2",
+            "actual": "cd0d229cada6c6cf61955068411872421495e35d410f879fbeecd2822cbacce2",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2369.txt",
+            "expected": "7f0de80f635688cba3bce929ceb6042d56e7e471d13efaace7e1cd5fd4380996",
+            "actual": "7f0de80f635688cba3bce929ceb6042d56e7e471d13efaace7e1cd5fd4380996",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2283.txt",
+            "expected": "27f4ed0ca414950928c2a4064da3579cd5c572d92ff87eedfc93913530868161",
+            "actual": "27f4ed0ca414950928c2a4064da3579cd5c572d92ff87eedfc93913530868161",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2305.txt",
+            "expected": "0449eb1a50317f07c0c797eeb898ee562bc18a02925dfec8da488791634771ca",
+            "actual": "0449eb1a50317f07c0c797eeb898ee562bc18a02925dfec8da488791634771ca",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2307.txt",
+            "expected": "2957cd5edd8ee0558e7d35d8955cda3149a9f48ac432c398f77f727c32121ab3",
+            "actual": "2957cd5edd8ee0558e7d35d8955cda3149a9f48ac432c398f77f727c32121ab3",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2321.txt",
+            "expected": "fceec269fc77f34e3b7ed58d5d70a5d200270504eabd3d6438fa4f87dce22151",
+            "actual": "fceec269fc77f34e3b7ed58d5d70a5d200270504eabd3d6438fa4f87dce22151",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2409.txt",
+            "expected": "8dccb5c6d0f7787a8fc55bfba08d1279f06b4bdb528724889d71ba5229b650cf",
+            "actual": "8dccb5c6d0f7787a8fc55bfba08d1279f06b4bdb528724889d71ba5229b650cf",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2426.txt",
+            "expected": "1748d219e2d6bf48bc85a298947264910695502e272f9992a76210da6e57d57b",
+            "actual": "1748d219e2d6bf48bc85a298947264910695502e272f9992a76210da6e57d57b",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2436.txt",
+            "expected": "a0fbc2c4bf06e30255486ad34cfa3a864512186e637c66c7c2289b58fe5427ad",
+            "actual": "a0fbc2c4bf06e30255486ad34cfa3a864512186e637c66c7c2289b58fe5427ad",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2605.txt",
+            "expected": "c278d9d98524f59b5753adf5141a8575b93f6750179dd8d68730bdd90666bcd6",
+            "actual": "c278d9d98524f59b5753adf5141a8575b93f6750179dd8d68730bdd90666bcd6",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2185.txt",
+            "expected": "64b484d69a076d09b68a0b220a71583e1cda8b13969453d673ba9a83f7c9c9aa",
+            "actual": "64b484d69a076d09b68a0b220a71583e1cda8b13969453d673ba9a83f7c9c9aa",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2232.txt",
+            "expected": "f6f47a668d6b5908907ee2cf48aca633226f45d6e68ec6ee5233ca358285bcab",
+            "actual": "f6f47a668d6b5908907ee2cf48aca633226f45d6e68ec6ee5233ca358285bcab",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2319.txt",
+            "expected": "7b0c291153cc19a8fa9b9e16b56175e70d7d75a72cf7616ff3bc4cee35ac59b8",
+            "actual": "7b0c291153cc19a8fa9b9e16b56175e70d7d75a72cf7616ff3bc4cee35ac59b8",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2366.txt",
+            "expected": "e4888c88c1597aa55f08488837587a24360a89dece8246d8ed1ee11ea824edd1",
+            "actual": "e4888c88c1597aa55f08488837587a24360a89dece8246d8ed1ee11ea824edd1",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2219.txt",
+            "expected": "810847e1e87dd01587fc0c34bbb8080e272cac80f2a3a98263400a747903b05d",
+            "actual": "810847e1e87dd01587fc0c34bbb8080e272cac80f2a3a98263400a747903b05d",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2262.txt",
+            "expected": "4807944a568dfc6594a30588be2dd1b9b44886a169f928ac49e1597394cef0ba",
+            "actual": "4807944a568dfc6594a30588be2dd1b9b44886a169f928ac49e1597394cef0ba",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2269.txt",
+            "expected": "4dc9e9c37f45c41af34068aa27970366203d885a147677d238bd8cffe11f68a4",
+            "actual": "4dc9e9c37f45c41af34068aa27970366203d885a147677d238bd8cffe11f68a4",
+            "match": true
+          },
+          {
+            "file": "splits/setting3/basin_2299.txt",
+            "expected": "f3d4bf44b48212b85e5b1c902e3b2779ba4e080ef76e70cdd4ca5d651b4fb3c6",
+            "actual": "f3d4bf44b48212b85e5b1c902e3b2779ba4e080ef76e70cdd4ca5d651b4fb3c6",
+            "match": true
+          }
+        ]
+      }
+    },
+    {
+      "id": "structure[continue_training_from_epoch010]",
+      "description": "results hold one daily frequency with a single time step at midnight dates",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "frequencies": [
+          "1D"
+        ],
+        "time_steps": [
+          1
+        ],
+        "non_midnight_basins": []
+      }
+    },
+    {
+      "id": "config_period[continue_training_from_epoch010]",
+      "description": "test dates in the run's config.yml equal periods.yml",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "config_start": "2010-10-01T00:00:00",
+        "config_end": "2020-09-30T00:00:00",
+        "periods_start": "2010-10-01T00:00:00",
+        "periods_end": "2020-09-30T00:00:00",
+        "seed": "200",
+        "test_basin_file": "splits\\setting2\\fold0_test.txt"
+      }
+    },
+    {
+      "id": "basin_set[continue_training_from_epoch010]",
+      "description": "basins in results equal fold0_test.txt exactly",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "n_expected": 36,
+        "n_in_results": 36,
+        "n_missing_from_results": 0,
+        "n_not_in_basin_file": 0,
+        "missing_from_results": [],
+        "not_in_basin_file": [],
+        "duplicates_in_basin_file": 0
+      }
+    },
+    {
+      "id": "dates_inside_period",
+      "description": "every date lies inside 2010-10-01..2020-09-30",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 0,
+        "total": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "no_duplicated_dates",
+      "description": "no basin has duplicated dates",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 0,
+        "total": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "period_fully_covered",
+      "description": "every basin has one row for every day of the period",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 0,
+        "total": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "no_nan_in_sim",
+      "description": "simulations contain no NaN or infinite value",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 0,
+        "total": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "sim_non_negative",
+      "description": "simulations are non-negative",
+      "status": "finding",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 8,
+        "total": 47,
+        "examples": [
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2139",
+            "n_sim_negative": 1
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2187",
+            "n_sim_negative": 3
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "3018",
+            "n_sim_negative": 1
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "3032",
+            "n_sim_negative": 1
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "5012",
+            "n_sim_negative": 11
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "5013",
+            "n_sim_negative": 2
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "5014",
+            "n_sim_negative": 10
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "6007",
+            "n_sim_negative": 18
+          }
+        ],
+        "most_negative_sim": -0.5922694206237793
+      }
+    },
+    {
+      "id": "obs_match_raw",
+      "description": "observations in results equal raw 'discharge_spec(mm/d)' on the same dates (tolerance 0.0005 mm/d)",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "raw_column": "discharge_spec(mm/d)",
+        "tolerance_mm_per_day": 0.0005,
+        "max_abs_diff_overall": 5.615234371703082e-06,
+        "n_days_compared": 116350,
+        "n_basin_member_pairs_failing": 0,
+        "n_without_raw_file": 0,
+        "n_values_where_raw_is_nan": 0,
+        "median_max_abs_diff_if_raw_shifted_one_day_back": 13.450999942779541,
+        "median_max_abs_diff_if_raw_shifted_one_day_forward": 13.450999913215638,
+        "worst": [
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2349",
+            "max_abs_diff": 5.615234371703082e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2430",
+            "max_abs_diff": 5.49316406051048e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "6007",
+            "max_abs_diff": 5.49316406051048e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2308",
+            "max_abs_diff": 3.8452148416467935e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2139",
+            "max_abs_diff": 3.112792967385758e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "5010",
+            "max_abs_diff": 2.655029298637146e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "3005",
+            "max_abs_diff": 1.4038085929257704e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2033",
+            "max_abs_diff": 1.373291016903977e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "2372",
+            "max_abs_diff": 1.37329101512762e-06,
+            "n_above_tol": 0
+          },
+          {
+            "member": "continue_training_from_epoch010",
+            "basin": "5013",
+            "max_abs_diff": 1.3122558595313194e-06,
+            "n_above_tol": 0
+          }
+        ],
+        "failing": []
+      }
+    },
+    {
+      "id": "obs_not_dropped",
+      "description": "no observation present in the raw file is missing from the results",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_basin_member_pairs": 0,
+        "total_days": 0,
+        "examples": []
+      }
+    },
+    {
+      "id": "flv_low_segment[continue_training_from_epoch010]",
+      "description": "no basin has zero or near-zero (< 0.01 mm/d) flows in the FLV low-flow segment",
+      "status": "finding",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_basins_flagged": 9,
+        "n_with_obs_zero": 0,
+        "n_with_sim_zero": 8,
+        "basins": [
+          "2139",
+          "2187",
+          "2349",
+          "3018",
+          "3032",
+          "5012",
+          "5013",
+          "5014",
+          "6007"
+        ],
+        "note": "FLV is unstable for these basins; prefer PBIAS and logNSE there"
+      }
+    },
+    {
+      "id": "library_vs_own[continue_training_from_epoch010][NSE]",
+      "description": "own NSE agrees with the library's test_metrics.csv within 0.001",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "max_abs_diff": 1.6231031096936022e-06,
+        "tolerance": 0.001,
+        "n_compared": 36,
+        "n_above_tolerance": 0,
+        "n_missing_on_one_side": 0,
+        "sim_clip_used": "zero",
+        "max_abs_diff_if_negative_sim_set_to_zero": 1.6231031096936022e-06,
+        "basins_above_tolerance": []
+      }
+    },
+    {
+      "id": "library_vs_own[continue_training_from_epoch010][KGE]",
+      "description": "own KGE agrees with the library's test_metrics.csv within 0.001",
+      "status": "pass",
+      "hard": true,
+      "alarm": false,
+      "details": {
+        "max_abs_diff": 5.376533311896026e-07,
+        "tolerance": 0.001,
+        "n_compared": 36,
+        "n_above_tolerance": 0,
+        "n_missing_on_one_side": 0,
+        "sim_clip_used": "zero",
+        "max_abs_diff_if_negative_sim_set_to_zero": 5.376533311896026e-07,
+        "basins_above_tolerance": []
+      }
+    },
+    {
+      "id": "library_vs_own[continue_training_from_epoch010][FHV]",
+      "description": "own FHV agrees with the library's test_metrics.csv within 0.1",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "max_abs_diff": 2.6146487726919077e-05,
+        "tolerance": 0.1,
+        "n_compared": 36,
+        "n_above_tolerance": 0,
+        "n_missing_on_one_side": 0,
+        "sim_clip_used": "zero",
+        "max_abs_diff_if_negative_sim_set_to_zero": 2.6146487726919077e-05,
+        "basins_above_tolerance": []
+      }
+    },
+    {
+      "id": "library_vs_own[continue_training_from_epoch010][FLV]",
+      "description": "own FLV agrees with the library's test_metrics.csv within 0.1",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "max_abs_diff": 0.000834042809856328,
+        "tolerance": 0.1,
+        "n_compared": 36,
+        "n_above_tolerance": 0,
+        "n_missing_on_one_side": 0,
+        "sim_clip_used": "zero",
+        "max_abs_diff_if_negative_sim_set_to_zero": 0.000834042809856328,
+        "basins_above_tolerance": [],
+        "note": "Not a hard check. This script floors flows <= 0 at 1e-06 mm/d before the log and uses the exact Yilmaz et al. (2008) denominator; a different zero treatment or a small constant added to the denominator in the library changes FLV, most strongly for basins flagged in flv_low_segment."
+      }
+    },
+    {
+      "id": "benchmarks_computed",
+      "description": "climatology and PREVAH benchmarks could be computed for every basin",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_basins_without_climatology": 0,
+        "n_basins_without_prevah": 0,
+        "climatology": "mean observed discharge per calendar day over 1981-10-01 00:00:00..2005-09-30 00:00:00, raw column discharge_spec(mm/d)",
+        "prevah_column": "discharge_spec_sim(mm/d)",
+        "prevah_note": "PREVAH ('simulation_based' in CAMELS-CH) is a calibrated process-based model whose calibration may have used the evaluation period. It is context only, NOT a fair out-of-sample competitor."
+      }
+    },
+    {
+      "id": "flags_cover_basins",
+      "description": "every basin in the results has a near_natural flag",
+      "status": "pass",
+      "hard": false,
+      "alarm": false,
+      "details": {
+        "n_without_flag": 0,
+        "basins": [],
+        "flags_file": "results/data_report/basin_flags.csv"
+      }
+    },
+    {
+      "id": "alarm_nse_above_0.98[continue_training_from_epoch010]",
+      "description": "no basin has NSE > 0.98",
+      "status": "pass",
+      "hard": true,
+      "alarm": true,
+      "details": {
+        "n_basins": 0,
+        "basins": []
+      }
+    },
+    {
+      "id": "alarm_median_nse_above_0.90[continue_training_from_epoch010]",
+      "description": "median NSE is not above 0.90",
+      "status": "pass",
+      "hard": true,
+      "alarm": true,
+      "details": {
+        "median_NSE": 0.4584022364099827,
+        "n_basins": 36
+      }
+    },
+    {
+      "id": "alarm_sim_identical_to_obs[continue_training_from_epoch010]",
+      "description": "no simulation is identical to the observations",
+      "status": "pass",
+      "hard": true,
+      "alarm": true,
+      "details": {
+        "n_basins": 0,
+        "basins": []
+      }
+    },
+    {
+      "id": "alarm_one_day_shift[continue_training_from_epoch010]",
+      "description": "sim correlates better with obs shifted by one day than with same-day obs in at most 10 % of basins",
+      "status": "fail",
+      "hard": true,
+      "alarm": true,
+      "details": {
+        "n_basins": 36,
+        "n_shifted_higher": 8,
+        "fraction": 0.2222222222222222,
+        "n_higher_vs_obs_next_day": 8,
+        "n_higher_vs_obs_previous_day": 0,
+        "basins": [
+          "2104",
+          "2210",
+          "2270",
+          "2370",
+          "5012",
+          "5014",
+          "5030",
+          "5032"
+        ]
+      }
+    }
+  ],
+  "n_checks": 22,
+  "n_failed_hard": 1,
+  "n_findings": 2,
+  "n_alarms": 1,
+  "overall": "fail"
+}
