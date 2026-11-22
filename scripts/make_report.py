@@ -501,8 +501,8 @@ The baseline can be reported with the caveats listed in `RESULTS.md`. No leakage
 
 They can be reported with the caveats in `RESULTS.md` and section 8. No leakage was found. Nothing looks too good. The
 ungauged LSTM is weak, and that result is reported as it is. The verifier raised two kinds of alarm. The one-day shift
-in lake and karst basins was examined and is a property of the ungauged models. The alarm on single-basin runs comes
-from a bug in the verification wrapper.
+in lake and karst basins was examined and is a property of the ungauged models. The alarm on single-basin runs came
+from a bug in the verification wrapper, which was fixed with the owner's approval (section 8).
 
 ## 1. Design audit, before training
 

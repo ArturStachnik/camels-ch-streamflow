@@ -50,7 +50,7 @@ def collect(units, out, single_basin=False, keep_unit_folders=True):
         per_basin.append(pb)
         bench.append(pd.read_csv(folder / "benchmarks.csv", dtype={"basin": str}).assign(unit=name))
         for c in rep["checks"]:
-            na = single_basin and c["id"] in SINGLE_BASIN_NOT_APPLICABLE
+            na = single_basin and c["id"].split("[")[0] in SINGLE_BASIN_NOT_APPLICABLE  # ids carry a "[run]" suffix
             checks.append(dict(unit=name, check=c["id"], status=c["status"], hard=c["hard"], alarm=c["alarm"],
                                counts=not na, description=c["description"]))
         if not keep_unit_folders:

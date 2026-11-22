@@ -16,8 +16,8 @@ The baseline can be reported with the caveats listed in `RESULTS.md`. No leakage
 
 They can be reported with the caveats in `RESULTS.md` and section 8. No leakage was found. Nothing looks too good. The
 ungauged LSTM is weak, and that result is reported as it is. The verifier raised two kinds of alarm. The one-day shift
-in lake and karst basins was examined and is a property of the ungauged models. The alarm on single-basin runs comes
-from a bug in the verification wrapper.
+in lake and karst basins was examined and is a property of the ungauged models. The alarm on single-basin runs came
+from a bug in the verification wrapper, which was fixed with the owner's approval (section 8).
 
 ## 1. Design audit, before training
 
@@ -158,14 +158,16 @@ The metric verification was run on every unit with `verification/verify_all.py`,
 | LSTM, setting 2 | 5 | 110 | 2 | 2 | 10 |
 | Boosting, setting 1 | 1 | 22 | 0 | 0 | 1 |
 | Boosting, setting 2 | 5 | 110 | 1 | 1 | 5 |
-| Setting 3, 120 single-basin runs | 120 | 2640 | 5 | 5 | 107 |
+| Setting 3, 120 single-basin runs | 120 | 2640 | 0 | 0 | 107 |
 
 - The alarms of setting 2 are the one-day shift in LSTM folds 0 and 2 and boosting fold 0. They are explained in
   `RESULTS.md` and examined below.
-- All 5 hard failures of setting 3 are the alarm on the median NSE across basins (alarm_median_nse_above_0.90).
-  With one basin per run the median is the NSE of that basin. `verify_all.py` was meant to exempt this alarm for
-  single-basin runs, but it compares the check name exactly, and the names carry the run name as a suffix, so the
-  exemption never applied. The verification code is frozen and was not changed. The failures are left as they are.
+- In setting 3 the alarm on the median NSE across basins is not applicable, because with one basin per run the median
+  is the NSE of that basin. It triggered in 5 runs and is recorded but not counted. The first
+  verification run counted it as a hard failure: `verify_all.py` compared the check name exactly, while the names
+  carry the run name as a suffix. The auditor found this, the owner approved the fix (one line, which strips the
+  suffix before the comparison), and setting 3 was verified again. No metric code changed.
+- Hard failures in setting 3 after the fix: 0.
 
 **Audit**
 

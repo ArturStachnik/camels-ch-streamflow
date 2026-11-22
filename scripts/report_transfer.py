@@ -462,10 +462,12 @@ The metric verification was run on every unit with `verification/verify_all.py`,
 
 - The alarms of setting 2 are the one-day shift in LSTM folds 0 and 2 and boosting fold 0. They are explained in
   `RESULTS.md` and examined below.
-- All {len(s3_fail)} hard failures of setting 3 are the alarm on the median NSE across basins ({', '.join(sorted(set(s3_fail)))}).
-  With one basin per run the median is the NSE of that basin. `verify_all.py` was meant to exempt this alarm for
-  single-basin runs, but it compares the check name exactly, and the names carry the run name as a suffix, so the
-  exemption never applied. The verification code is frozen and was not changed. The failures are left as they are.
+- In setting 3 the alarm on the median NSE across basins is not applicable, because with one basin per run the median
+  is the NSE of that basin. It triggered in {t['sum_s3']['n_not_applicable_alarms_triggered']} runs and is recorded but not counted. The first
+  verification run counted it as a hard failure: `verify_all.py` compared the check name exactly, while the names
+  carry the run name as a suffix. The auditor found this, the owner approved the fix (one line, which strips the
+  suffix before the comparison), and setting 3 was verified again. No metric code changed.
+- Hard failures in setting 3 after the fix: {len(s3_fail)}.
 
 **Audit**
 
