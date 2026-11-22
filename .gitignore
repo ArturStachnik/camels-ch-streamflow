@@ -5,5 +5,5 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 *.log
-METODOLOGIA_es.md
-BRIEF_universidad.md
+# local notes, not part of the project
+*_es.md
