@@ -312,7 +312,7 @@ leakage. The audit tests this separately (`AUDIT.md`).
 of the training period are used. Two ways of using them are compared.
 
 - Fine-tuning. Start from the setting-2 model of the fold in which the basin was held out, so the starting model has
-  never seen this basin or any basin on the same river, and train it further on the short record. 300 weight updates
+  never seen this basin or any basin nested with it, and train it further on the short record. 300 weight updates
   at a learning rate of 1e-4.
 - From scratch. A smaller LSTM (64 units) trained on the short record of this basin alone, with the five forcing
   variables. 1500 weight updates at a learning rate of 1e-3.
