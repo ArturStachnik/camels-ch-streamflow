@@ -30,6 +30,20 @@ python -m pytest verification/test_metric_definitions.py
 
 The exit code is 0 only if no hard check failed.
 
+## Settings 2 and 3 and gradient boosting
+
+`verify_all.py` runs `verify_metrics.py` once per evaluated unit (each setting-2 fold, each
+gradient-boosting model and each of the 120 single-basin runs of setting 3) with the basin
+list that unit must contain, and collects the outputs:
+
+```
+python verification/verify_all.py setting2 gbm setting3
+```
+
+Outputs go to `results/verification_setting2/`, `results/verification_gbm/` and
+`results/verification_setting3/`. It computes no metric itself. The alarm on the median NSE
+across basins is recorded but not counted for single-basin runs, where it does not apply.
+
 ## Inputs
 
 | Input | Default | Use |

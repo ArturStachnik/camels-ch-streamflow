@@ -57,7 +57,7 @@ Of 331 catchments, 205 are used (175 CH, 14 AT, 13 FR, 2 DE, 1 IT). Excluded:
 The per-basin table with quality-control columns is `results/data_report/basin_report.csv`.
 `results/data_report/basin_flags.csv` flags regulated (81), major reservoir (48),
 glacierised (32), lake-influenced (34), open water balance (18) and basins outside
-Switzerland with unknown human influence (30). 75 basins carry no flag. Results will be
+Switzerland with unknown human influence (30). 75 basins carry no flag. Results are
 reported for all basins and for the unflagged subset.
 
 ### Periods (hydrological years)

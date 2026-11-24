@@ -5,6 +5,7 @@ authors:
   - family-names: Stachnik
     given-names: Artur
 license: MIT
+repository-code: "https://github.com/ArturStachnik/camels-ch-streamflow"
 references:
   - type: article
     title: "CAMELS-CH: hydro-meteorological time series and landscape attributes for 331 catchments in hydrologic Switzerland"

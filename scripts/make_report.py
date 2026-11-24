@@ -541,7 +541,7 @@ Done on the first version of the pipeline, before any 30-epoch run.
 | Check | Result |
 |---|---|
 | Normalisation statistics use only the training period | Recomputed from the training period they match the saved scaler within a relative difference of {x['scaler']}. Recomputed from training plus validation they differ by up to {x['scaler_tv']} %, and from the whole record by up to {x['scaler_all']} %, so the check can tell the cases apart. The scaler is identical in the three seeds. |
-| Normalisation statistics use only training basins | In setting 1 all basins are training basins. This check matters in setting 2. |
+| Normalisation statistics use only training basins | In setting 1 all basins are training basins. For the folds of setting 2 see section 8. |
 | Static attributes derived from streamflow | None of the 45 attributes in the run configuration is a hydrological signature. |
 | Climate indices use only the training period | Recomputed from the raw files for all {x['n']} basins with separate code. Largest difference to the attribute table {x['clim_idx']}. Basins closer to the whole-record value than to the training-period value {x['clim_idx_full']}. |
 | Observed discharge among the inputs | The run configuration has five meteorological inputs and no lagged or autoregressive input. In the library, `BaseDataset` sets the target to missing before the start of each period and passes only the dynamic inputs to the model. |
